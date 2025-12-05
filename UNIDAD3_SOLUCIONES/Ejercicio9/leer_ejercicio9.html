@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    window.onload = function(){  
+      // Leemos cookies con un nombre determinado
+      function leerCookie(nombre) {
+  
+        // Separa un string en un array usando el caracter ;  como separador
+        let cookies = document.cookie.split(";");
+        
+        for (let c of cookies) {
+          // Se pueden crear variables para clave y valor usando desestructuración
+          // Aún no se ha estudiado
+          //let [clave, valor] = c.trim().split("=");
+          
+          // La clave es el primer elemento del array y el valor el segundo
+          let cadenaActual = c.trim().split("=");
+          if (cadenaActual[0] === nombre) {
+            return decodeURIComponent(cadenaActual[1]);
+          }
+        }
+        return null;
+      }
+
+      let nombre = leerCookie("nombre");
+      let edad = leerCookie("edad");
+
+      // Al cargar la página mostramos las cookies si se hubieran encontrado. En caso contrario un mensaje de error
+      const info = document.getElementById("info");
+      if (nombre && edad) {
+        info.textContent = `Hola, ${nombre}. Tienes ${edad} años.`;
+      } else {
+        info.innerHTML = `No se encontraron cookies. <a href="crear_ejercicio9.html">Regresa a la página anterior.</a>`;
+      }
+
+      // Para borrar las cookies basta con dejarlas en blanco y cambiar la fecha de expiración
+      document.getElementById("borrar").addEventListener("click", function(e){
+        // Formato con fechas
+        /*document.cookie = "nombre=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+        document.cookie = "edad=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";*/
+
+        // Formato con max-age
+        document.cookie = "nombre=; max-age=0; path=/";
+        document.cookie = "edad=; max-age=0; path=/";
+        alert("Cookies borradas");
+        window.location.reload();
+      });
+    };    
+  </script>
+</head>
+<body>
+  <h2>Bienvenido/a</h2>
+  <p id="info"></p>
+
+  <button id="borrar">Borrar cookies</button>  
+</body>
+</html>

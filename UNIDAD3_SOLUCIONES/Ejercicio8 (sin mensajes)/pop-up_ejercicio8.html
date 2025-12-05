@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<script>
+		// Otra opción sería manejar el evento desde aquí y acceder a la ventana principal con window.opener	
+		/*document.addEventListener("DOMContentLoaded", () => {
+
+			// Buscamos el frame con window.opener
+			document.getElementById("cerrar").addEventListener("click", function () {	
+				let frameResultado = window.opener.frames.resultado;
+
+				frameResultado.document.body.innerHTML = "Mensaje recibido desde la ventana emergente";
+				window.close();
+			});
+		});*/
+	</script>
+</head>
+<body>
+  <h2 id="saludo">Hola</h2>
+  <button id="cerrar">Cerrar y enviar mensaje</button>  
+
+</body>
+</html>

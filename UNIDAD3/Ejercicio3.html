@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    <script>
+        cadena = prompt("Introduce la cadena en la que quieres buscar"); // cadena principal donde buscaremos
+        let posicionCadena = cadena.indexOf('JavaScript') // posicion de la cadena que queremos buscar
+        let intentos = 0 // contador para intentos del usuario
+        let palabraBuscar = "JavaScript";
+        if (cadena.includes(palabraBuscar.trim())) { // cadena existe
+            let posicionUsuario = +prompt("Adivine en qué posición empieza la cadena");
+            while (posicionUsuario != posicionCadena) { // bucle si la posición de la cadena y la que dio el usuarion no coinciden
+                if (posicionUsuario < posicionCadena) {
+                    alert("La posición es mayor");
+                } else {
+                    alert("La posición es menor");
+                }
+                posicionUsuario = prompt("Incorrecto, vuelva a intentarlo");
+                intentos++;
+            }
+            if (posicionUsuario == posicionCadena) { // si ambas posiciones coinciden muestra CORRECTO y finaliza el programa mostrando intentos
+                intentos++;
+                alert(`¡CORRECTO!: Número de intentos ${intentos}`);
+            }
+        } else { // cadena no existe
+            alert("Cadena no encontrada");
+        }
+    </script>
+</body>
+</html>

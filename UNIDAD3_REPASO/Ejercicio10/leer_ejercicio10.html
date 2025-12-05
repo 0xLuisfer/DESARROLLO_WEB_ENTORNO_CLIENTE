@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leer local storage (repasar para el examen)</title>
+    <script>
+        let usuario = localStorage.getItem('usuario');
+        let edad = localStorage.getItem('edad');
+
+        if (usuario && edad) {
+            window.onload = function() {
+                let p = document.getElementById('datos');
+                p.innerHTML = `Hola, ${localStorage.getItem('usuario')}. Tienes ${localStorage.getItem('edad')} años.`
+            }
+        } else {
+            window.onload = function() {
+                let p = document.getElementById('datos');
+                p.innerHTML = 'No se encontraron datos. <a href="crear_ejercicio10.html">Volver a la página de inicio</a>';
+            }
+        }
+
+        function borrarDatos() {
+            localStorage.removeItem('usuario');
+            localStorage.removeItem('edad');
+            window.location.reload()
+        }
+    </script>
+</head>
+<body>
+    <h2>Bienvenido/a</h2>
+    <p id="datos"></p>
+    <input type="button" value="Borrar datos" onclick="borrarDatos()">
+</body>
+</html>

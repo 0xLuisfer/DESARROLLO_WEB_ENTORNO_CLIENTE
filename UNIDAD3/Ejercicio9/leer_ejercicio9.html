@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 9 (leer cookies)</title>
+</head>
+<body>
+    <h1>Bienvenido/a</h1>
+    <script>
+    function getCookies(nombre) {
+        let cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            let cookie = cookies[i].trim(); // eliminamos espacios
+            if (cookie.indexOf(nombre + "=") === 0) {
+                return cookie.substring(nombre.length + 1);
+            }
+        }
+    }
+
+    if (document.cookie) {
+        let nombreUsuario = getCookies('user');
+        let edad = getCookies('age');
+        document.body.innerHTML += `<p>Hola, ${nombreUsuario}. Tienes ${edad} años.</p>`
+    } else {
+        document.write('No se encontraron cookies. ');
+        document.body.innerHTML += "<a href='crear_ejercicio9.html'>Regresa a la página anterior</a><br>"
+    }
+
+    function borrarCookies() {
+        document.cookie = "user=; max-age = -1";
+        document.cookie = "age=; max-age = -1";
+        window.location.reload();
+    }
+</script>
+<br>
+<input type="button" value="Borrar cookies" onclick="borrarCookies()">
+</body>
+</html>

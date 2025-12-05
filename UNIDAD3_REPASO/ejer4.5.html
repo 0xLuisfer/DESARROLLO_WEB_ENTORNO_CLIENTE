@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let fechaString = "2025-11-25"; // Ejemplo de fecha ISO
+        let primerGuion = fechaString.indexOf('-'); // Devuelve 4 (posición del primer guion)
+        let segundoGuion = fechaString.indexOf('-', primerGuion + 1); // Devuelve 7 (posición del segundo guion)
+
+        // Partes extraídas como string:
+        let añoString = fechaString.slice(0, primerGuion);     // "2025"
+        let mesString = fechaString.slice(primerGuion + 1, segundoGuion); // "11"
+        let diaString = fechaString.slice(segundoGuion + 1);    // "25"
+
+        console.log(añoString);
+        console.log(mesString);
+        console.log(diaString);
+
+        let ciudad = "Guadalajara";
+        console.log(ciudad.slice(0, 5));
+        console.log(ciudad.slice(4));
+        console.log(ciudad.slice(7, 10));
+
+
+
+    </script>
+
+</body>
+
+</html>

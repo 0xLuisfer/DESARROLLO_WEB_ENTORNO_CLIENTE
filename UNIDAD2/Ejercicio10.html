@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10</title>
+</head>
+<body>
+    <script>
+        let clave = +prompt("Introduzca la clave");
+        let intentos = 2;
+
+        while (intentos) {
+            if (clave != 1234) { // si la clave es distinta volverá a introducir
+                clave = +prompt("Clave incorrecta, vuelva a introducirla");
+            } else {
+                alert('¡Bienvenid@ al sistema!'); // si es correcta, entra y termina el bucle
+                break;
+            }
+            if (intentos == 1) {
+                alert('Tarjeta bloqueada'); // si hace 3 intentos se bloquea la tarjeta y termina el bucle
+                break;
+            }
+            intentos--; // se resta cada intento
+        }
+    </script>
+</body>
+</html>

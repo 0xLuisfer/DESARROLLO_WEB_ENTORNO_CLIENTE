@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 11</title>
+</head>
+<body>
+    <script>
+        const constante = 3; // multiplo donde debe acabar cada tabla
+        for (let numero = 1;numero <= 10; numero++) { //empezamos el bucle por la tabla del 1 y finalizamos en 10
+            document.write("TABLA DEL ", numero,"<br>");
+            for (let multiplicador = 1;multiplicador <= 10; multiplicador++) { //cada número por el que se multiplicará la tabla
+                let resultado = numero * multiplicador;
+                if (resultado % constante != 0) { // verificamos si es múltiplo de la constante
+                    document.write(numero , " x " , multiplicador , " = " , resultado, "<br>");
+                } else {
+                    break; // si es multiplo de la constante, finalizamos el bucle interno y seguiremos con la siguiente tabla
+                }
+            }
+            document.write("<br>");
+        }
+    </script>
+</body>
+</html>

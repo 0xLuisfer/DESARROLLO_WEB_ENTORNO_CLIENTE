@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+</head>
+<body>
+    <script>
+        let fechas = []
+        let fechaUsuario = prompt("Introduzca una fecha");
+        let date = new Date(Date.parse(fechaUsuario));
+        fechas.push(date);
+        let result = confirm("¿Desea añadir otra fecha?");
+        while (result) {
+            fechaUsuario = prompt("Introduzca una fecha");
+            date = new Date(Date.parse(fechaUsuario));
+            fechas.push(date);
+            result = confirm("¿Desea añadir otra fecha?");
+        }
+
+        let now = new Date();
+        for (i = 0; i < fechas.length; i++){
+            let fechaInicial = new Date(fechas[i]);
+            document.write(`Fecha introducida: ${fechaInicial}`);
+
+            let resta_fecha = now.getTime() - fechaInicial.getTime(); // diferencia de las dos fechas en milisegundos
+            resta_fecha_dias = Math.trunc(resta_fecha / (1000 * 60 * 60 * 24)); // transformamos a dias --> usamos trunc porque para completar un día tiene que llegar al siguiente número entero
+            restante_fecha_segundos = resta_fecha % (1000 * 60 * 60 * 24); // cogemos el restante que sobra de los días para calcular los segundos
+            resto_segundos = Math.round(restante_fecha_segundos / 1000); // pasamos el restante a segundos
+            document.write("<br>");
+            document.write(`Hay una diferencia de ${resta_fecha_dias} días y ${resto_segundos} segundos con respecto al día de hoy`);
+            
+            //sumamos 5 días a la fecha introducida
+            document.write("<br>");
+            let fecha_cinco_dias = fechaInicial;
+            fecha_cinco_dias.setDate(fechaInicial.getDate() + 5);
+            document.write(`Suma de 5 días: ${fecha_cinco_dias}`);
+
+            //verificamos si es fin de semana
+            document.write("<br>");
+            let dia_semana = fechaInicial.getDay();
+            if (dia_semana == 4 || dia_semana == 5) {
+                document.write("SÍ es fin de semana");
+            } else {
+                document.write("NO es fin de semana");
+            }
+
+            //verificamos si transcurre entre las 00:00 y las 08:00
+            document.write("<br>");
+            let hora = fechaInicial.getHours();
+            if (hora >= 0 && hora < 8) {
+                document.write("SÍ transcurre entre las 00:00 y las 08:00");
+            } else {
+                document.write("NO transcurre entre las 00:00 y las 08:00");
+            }
+            
+            
+            document.write("<br>");
+            document.write("----------------------------------------");
+            document.write("<br>");
+        }
+    </script>
+</body>
+</html>

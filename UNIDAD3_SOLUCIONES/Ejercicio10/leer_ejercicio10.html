@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    window.onload = function(){  
+      // Buscamos las claves nombre y edad
+      let nombre = localStorage.getItem("nombre");
+      let edad = localStorage.getItem("edad");
+
+      let info = document.getElementById("info");
+
+      if (nombre && edad) {
+        info.textContent = `Hola, ${nombre}. Tienes ${edad} años.`;
+      } else {
+        info.innerHTML = `No se encontraron datos. <a href="crear_ejercicio10.html">Regresa a la página anterior.</a>`;
+      }
+
+      document.getElementById("borrar").addEventListener("click", function(e){
+        // Borramos items con removeItem (clear borra todo y no es seguro)
+        localStorage.removeItem("nombre");
+        localStorage.removeItem("edad");
+        alert("Datos eliminados del almacenamiento local.");
+        window.location.reload();
+      });
+    };    
+  </script>
+</head>
+<body>
+  <h2>Bienvenido/a</h2>
+  <p id="info"></p>
+
+  <button id="borrar">Borrar datos</button>  
+</body>
+</html>

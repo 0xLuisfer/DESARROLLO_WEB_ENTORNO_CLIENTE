@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4 para repaso del examen</title>
+</head>
+<body>
+    <script>
+        // Recibimos fechas del usuario y las añadimos al array de fechas
+        let fechas = [];
+        let fechaUsuario = prompt("Introduzca una fecha (YYYY-MM-DD)")
+        let date = new Date(Date.parse(fechaUsuario));
+        fechas.push(date);
+        let confirmar = confirm("¿Desea introducir otra fecha?");
+        while (confirmar) {
+            fechaUsuario = prompt("Introduzca otra fecha (YYYY-MM-DD)")
+            date = new Date(Date.parse(fechaUsuario))
+            fechas.push(date);
+            confirmar = confirm("¿Desea introducir otra fecha?");
+        }
+
+        // mostramos las fechas formateadas, ej: 17 de junio de 2025, 10:30
+        let dia; let mes; let año; let hora;
+        let fechaFormateada = "";
+        function formatearFechas(fechas) {
+            dia = fechas.getDate();
+            mes = fechas.getMonth() + 1;
+            anio = fechas.getFullYear();
+            fechaFormateada = `${dia} del ${mes} del ${anio}<br>`;
+            document.write(fechaFormateada);
+        }
+
+        document.write("Fechas formateadas:<br>");
+        for (let i = 0; i < fechas.length; i++) {
+            formatearFechas(fechas[i]);
+        }
+
+        document.write("------------------------------------------------------<br>")
+        // La diferencia entre fecha actual y la introducida: en dias y segundos
+        let fechaActual = new Date();
+        let fechaRestada;
+    
+        function diferenciaFechas(fechas) {
+            fechaRestada =  Math.abs(fechaActual - fechas);
+            diferenciaSegundos = Math.floor(fechaRestada / 1000);
+            diferenciaDias = Math.floor(fechaRestada / (1000 * 60 * 60 * 24));
+            document.write(`Diferencia en segundos => ${diferenciaSegundos}<br>`);
+            document.write(`Diferencia en dias => ${diferenciaDias}<br>`);
+        }
+
+        document.write("Diferencia con fecha actual:<br>");
+        for (let i = 0; i < fechas.length; i++) {
+            diferenciaFechas(fechas[i]);
+        }
+
+        document.write("------------------------------------------------------<br>")
+        //sumar 5 dias a la fecha introducida
+        function fechaCincoDias(fechas) {
+            let fechaFutura = new Date(fechas)
+            fechaFutura.setDate(date.getDate() + 5);
+            document.write('Fecha dentro de 5 días<br>');
+            document.write(fechaFutura,'<br>');
+        }
+
+        for (let i=0; i < fechas.length; i++) {
+            fechaCincoDias(fechas[i]);
+        }
+
+        document.write("------------------------------------------------------<br>")
+        // verificar si cada fecha es en fin de semana
+        function finDeSemana(fechas) {
+            if (fechas.getDay() != 0 && fechas.getDay() != 6) {
+                document.write('No es fin de semana<br>');
+            } else {
+                document.write('Sí es fin de semana<br>');
+            }
+        }
+
+        for (let i=0; i < fechas.length; i++) {
+            finDeSemana(fechas[i]);
+        }
+
+        document.write("------------------------------------------------------<br>")
+        // verificar si cada hora transcurre entre las 00:00 y las 08:00
+        function entreHorarios(fechas) {
+            if (fechas.getHours() > 0 && fechas.getHours() < 8) {
+                document.write('Transcurre entre las 00:00 y las 08:00<br>');
+            } else {
+                document.write('No transcurre entre las 00:00 y las 08:00<br>');
+            }
+        }
+
+        for (let i=0; i < fechas.length; i++) {
+            entreHorarios(fechas[i]);
+        }
+
+        
+    </script>
+</body>
+</html>

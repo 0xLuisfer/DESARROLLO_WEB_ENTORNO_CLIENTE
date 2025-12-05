@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 8 Index</title>
+</head>
+<body>
+    <h1>Ejercicio 8 INDEX</h1>
+    <input type="text" id="texto" placeholder="Introduce un nombre">
+    <input value="Pulse el botón" type="button" id="boton">
+    <br><br>
+    <iframe src="" width="300" height="150" style="border: 1px solid black;" id="iframe"></iframe>
+</body>
+<script>
+        let boton = document.getElementById('boton');
+        let validarTexto = document.getElementById('texto');
+        let params = "scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=0,height=0,left=-1000,top=-1000";
+
+        boton.onclick = function() {
+            if (!validarTexto.value.trim()) {
+                alert('Debe introducir un nombre antes de pulsar el botón.')
+            } else {
+                let newWindow = open("pop-up_ejercicio8.html", "ejercicio 8 pop-up", params);
+                newWindow.onload = function() {
+                    let contenido = `<h2>Hola, ${validarTexto.value}</h2>
+                    <input type="button" value="Cerrar y enviar mensaje" onclick="manipularIframe()">`;
+                    newWindow.document.body.innerHTML += `${contenido}`;
+                };
+            }
+        };
+</script>
+</html>

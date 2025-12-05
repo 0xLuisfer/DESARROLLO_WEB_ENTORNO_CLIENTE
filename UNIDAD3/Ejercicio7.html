@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7</title>
+    <script>
+    function modificar() {
+        // definimos variables para los inputs del html
+        let calificación = document.getElementById('nota').value;
+        let nombre = document.getElementById('nombre').value;
+        let apellido = document.getElementById('apellido').value;
+
+        // verificamos si es un número válido
+        if (!calificación) {
+            alert("Nota no válida.");
+        // verificamos si la nota está entre 0 y 10
+        } else if (calificación > 10 || calificación < 0) {
+            alert("La nota debe estar entre 0 y 10.");
+        // hacemos las modificaciones en el caso de pasar todas las validaciones
+        } else {
+            let h2 = document.getElementsByTagName('h2')[0];
+            h2.innerHTML = `Nombre del Alumno: ${nombre} ${apellido}`;
+            let notaFinal = document.getElementById('notaFinal');
+            notaFinal.innerHTML = `Calificación => <strong>Nota: ${calificación}</strong>`;
+            let div = document.querySelector('.mensaje');
+            if (calificación < 5) {
+                div.textContent = `SUSPENSO`;
+            } else if (calificación >= 5 && calificación < 6) {
+                div.textContent = `APROBADO`;
+            } else if (calificación >= 6 && calificación < 7) {
+                div.textContent = `BIEN`;
+            } else if (calificación >= 7 && calificación < 9) {
+                div.textContent = `NOTABLE`;
+            } else {
+                div.textContent = `SOBRESALIENTE`;
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <h1>Datos del alumno</h1>
+    Nombre: <input type="text" id="nombre"><br><br>
+    Apellido: <input type="text" id="apellido"><br><br>
+    Nota del examen: <input type="number" id="nota"><br><br>
+    <input type="button" value="Enviar" id="boton" onclick="modificar()">
+    <br><br>
+
+    <h2>Nombre del alumno: </h2>
+    <p id="notaFinal">Resultado de la evaluación: </p>
+    <div class="mensaje"></div>
+
+</body>
+</html>

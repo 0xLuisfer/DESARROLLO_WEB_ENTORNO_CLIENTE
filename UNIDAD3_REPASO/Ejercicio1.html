@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 repaso para del examen</title>
+</head>
+<body>
+    <script>
+        let numero = Number(prompt("Introduce un número del 1 al 10"));
+        let numeroAleatorio = Math.ceil(Math.random() * 10);
+        if (!isNaN(numero)) {
+            if (numero <= 10 && numero > 0) {
+                if (numero == numeroAleatorio) {
+                    alert('¡Correcto, los dos números coinciden!')
+                } else {
+                    alert(`Mala suerte, el número era el ${numeroAleatorio}`)
+                }
+            } else {
+                alert('El número introducido esta fuera del rango')
+            }
+        } else {
+            alert('No es un número el valor introducido');
+        }
+    </script>
+</body>
+</html>

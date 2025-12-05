@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 repaso para el examen</title>
+</head>
+<body>
+    <script>
+        let precioBase = Number(prompt("Introduce un precio base en euros"));
+        let descuento = Number(prompt("Introduce un procentaje de descuento"));
+
+        if (!isFinite(precioBase)) {
+            alert('El resultado es un número infinito');
+        } else {
+            if (!isNaN(precioBase) && !isNaN(descuento)) {
+            let precioFinal = precioBase - (descuento/100 * precioBase);
+            alert('El precio final con el descuento es de ' + precioFinal.toFixed(2) + ' euros');
+            } else {
+                alert('Los valores introducidos no son válidos');
+            }
+        }
+    </script>
+</body>
+</html>

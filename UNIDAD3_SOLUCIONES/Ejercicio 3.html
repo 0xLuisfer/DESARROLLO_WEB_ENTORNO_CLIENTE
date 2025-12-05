@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<script>
+		const PALABRABUSCADA = "JavaScript";
+
+		// Pedir al usuario que ingrese una cadena de texto
+		let cadena = prompt("Introduce una cadena de texto:");
+    
+		// Eliminar los espacios al principio y al final de la cadena
+		cadena = cadena.trim();
+							
+		// Buscar la posición de la palabra "JavaScript" (sin importar mayúsculas/minúsculas)
+		let posicionCorrecta = cadena.toLowerCase().indexOf(PALABRABUSCADA.toLowerCase());
+		
+		// Si la palabra "JavaScript" no está en la cadena, informar al usuario
+		if (posicionCorrecta === -1) {
+			alert("¡Ups! La palabra 'JavaScript' no está en la cadena.");
+			
+		} else {
+			// Mostrar mensaje de inicio para adivinar la posición
+			alert(`¡Intenta adivinar en qué posición está la palabra 'JavaScript' en la cadena!`);
+			
+			// Crear un ciclo donde el usuario intenta adivinar la posición
+			let adivinanza = -1;
+			let intentos = 0;
+			
+			while (adivinanza !== posicionCorrecta) {
+				// Pedir al usuario que adivine la posición
+				adivinanza = parseInt(prompt("¿En qué posición empieza la palabra 'JavaScript' (índice)?"));
+				intentos++;
+				
+				// Verificar si la adivinanza es correcta
+				if (adivinanza === posicionCorrecta) {
+					alert(`¡Felicidades! Has adivinado correctamente en ${intentos} intentos.`);
+					
+					// Mostrar el resto de la cadena después de la palabra "JavaScript"
+					let restoCadena = cadena.slice(posicionCorrecta + PALABRABUSCADA.length);
+					alert("El resto de la cadena a partir de 'JavaScript' es: " + restoCadena);
+				} else if (adivinanza < posicionCorrecta) {
+					alert("La posición correcta es mayor. Intenta de nuevo.");
+				} else {
+					alert("La posición correcta es menor. Intenta de nuevo.");
+				}
+			}
+		}	
+	</script>
+</html>

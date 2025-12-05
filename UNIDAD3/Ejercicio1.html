@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    <script>
+        let numAleatorio = Math.ceil(Math.random() * 10); // número generado del 1 al 10 usando ceil para evitar el 0
+        let numUsuario = Number(prompt("Introduce un número del 1 al 10"));
+        if (isNaN(numUsuario)) { // si no es un número
+            alert("No es un número"); 
+        } else {
+            if (numUsuario > 0 && numUsuario <= 10) { // si es un número
+                if (numUsuario == numAleatorio) { // si coinciden ambos números
+                    alert("¡Los dos números coinciden!");
+                } else {
+                    alert("Incorrecto");
+                }
+            } else {
+                alert("Número fuera de rango");
+            }
+        }
+    </script>
+</body>
+
+</html>

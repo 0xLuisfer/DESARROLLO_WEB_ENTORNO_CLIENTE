@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5 para repaso del examen</title>
+    <script>
+        window.onload = function() {
+            let nombre = prompt("Introduce nombre y apellidos");
+            let calificacion = Number(prompt("Introduce una nota (1 al 10)"));
+
+            h2 = document.getElementsByTagName('h2')[0];
+            h2.innerHTML += `: ${nombre}`;
+            p = document.getElementById('notaFinal');
+            p.innerHTML += ` <strong>Nota: ${calificacion}</strong>`;
+            div = document.getElementsByClassName('mensaje')[0];
+
+            if (!isNaN(calificacion)) {
+                if (calificacion < 0 || calificacion > 10) {
+                    alert('La nota introducida es errónea');
+                } else {
+                    if (calificacion < 5) {
+                        div.innerHTML += `SUSPENSO`;
+                    } else if (calificacion < 6) {
+                        div.innerHTML += `APROBADO`;
+                    } else if (calificacion < 7) {
+                        div.innerHTML += `BIEN`;
+                    } else if (calificacion < 9) {
+                        div.innerHTML += `NOTABLE`;
+                    } else {
+                        div.innerHTML += `SOBRESALIENTE`;
+                    }
+                }
+            } else {
+                alert('El valor introducido en calificación no es un número.')
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Nombre del alumno</h2>
+    <p id="notaFinal">Resultado de la evaluación:</p>
+    <div class="mensaje"></div>
+</body>
+</html>

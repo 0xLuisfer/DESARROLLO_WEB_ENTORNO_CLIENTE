@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 9 (crear cookies)</title>
+</head>
+<script>
+    function crearCookies() {
+        let nombre = document.getElementById('nombre').value;
+        let edad = document.getElementById('edad').value;
+        document.cookie = `user=${nombre}; max-age = 300`;
+        document.cookie = `age=${edad}; max-age = 300`;
+        window.location.href = "leer_ejercicio9.html";
+    }
+</script>
+<body>
+    <h1>Introduce tus datos</h1>
+    Nombre: <input type="text" id="nombre" placeholder="Tu nombre"><br><br>
+    Edad: <input type="number" id="edad" placeholder="Tu edad"><br><br>
+    <input type="button" value="Guardar y continuar" onclick="crearCookies()">
+</body>
+</html>

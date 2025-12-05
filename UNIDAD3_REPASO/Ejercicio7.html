@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7 para repaso del examen</title>
+    <script>
+        function calcularNota() {
+
+            let nombreAlumno = nombre.value;
+            calificacion = nota.value;
+
+            let h2 = document.getElementsByTagName('h2')[1];
+            let notaFinal = document.getElementById('notaFinal');
+            let div = document.getElementsByClassName('mensaje')[0];
+
+            h2.innerHTML = `${nombreAlumno}`;
+            notaFinal.innerHTML = `<strong>${calificacion}</strong>`
+            if (!isNaN(calificacion)) {
+                if (calificacion > 0 && calificacion < 10) {
+                    if (calificacion < 5) {
+                        div.innerHTML = `SUSPENSO`;
+                    } else if (calificacion < 6) {
+                        div.innerHTML = `APROBADO`;
+                    } else if (calificacion < 7) {
+                        div.innerHTML = `BIEN`;
+                    } else if (calificacion < 9) {
+                        div.innerHTML = `NOTABLE`;
+                    } else {
+                        div.innerHTML = `SOBRESALIENTE`;
+                    }
+                } else {
+                    alert('La nota introducida es errónea');
+                }
+            } else {
+                alert('El valor introducido en calificación no es un número.')
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Datos del alumno</h2>
+    Alumno <input type="text" placeholder="Nombre" id="nombre" required><br><br>
+    Calificación <input type="number" placeholder="Nota" id="nota" required><br><br>
+    <input type="button" value="Enviar" onclick="calcularNota()">
+
+    <h2>Nombre del alumno</h2>
+    <p id="notaFinal">Resultado de la evaluación:</p>
+    <div class="mensaje"></div>
+</body>
+
+</html>

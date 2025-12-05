@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 8 para repaso del examen</title>
+</head>
+<script>
+    function enviarMensaje() {
+        let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=600,height=400,left=-1000,top=-1000`;
+        
+        if (campo.value.trim()) {
+            let nuevaVentana = window.open("pop-up_ejercicio8.html", "nuevaVentana", params);
+            nuevaVentana.onload = function() {
+                nuevaVentana.document.body.innerHTML = `<h3>Hola, ${campo.value}</h3>
+                <input type="button" value="Enviar" onclick="cerrarVentana()">`;
+            }
+        } else {
+            alert('Texto vacio');
+        }
+    }
+</script>
+<body>
+    <h2>Enviar mensaje a ventana emergente</h2>
+    <iframe id="iframe" src="" frameborder="1" width="300px" height="150px"></iframe><br><br>
+    <input type="text" placeholder="Tu nombre" id="campo">
+    <input type="button" value="Enviar" onclick="enviarMensaje()"><br><br>
+</body>
+</html>

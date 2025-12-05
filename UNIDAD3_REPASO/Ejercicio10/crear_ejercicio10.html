@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear local storage (repaso examen)</title>
+    <script>
+        function guardarDatos() {
+            localStorage.setItem('usuario', `${nombre.value}`);
+            localStorage.setItem('edad', `${edad.value}`);
+            window.location.href = "leer_ejercicio10.html";
+        }
+    </script>
+</head>
+<body>
+    <h2>Introduce tus datos</h2>
+    Nombre: <input type="text" placeholder="Tu nombre" id="nombre" required><br><br>
+    Edad: <input type="number" placeholder="Tu edad" id="edad" required><br><br>
+    <input type="button" value="Guardar y continuar" onclick="guardarDatos()">
+</body>
+</html>

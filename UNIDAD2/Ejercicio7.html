@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7</title>
+</head>
+<body>
+    <script>
+        nota = prompt("Inserte la nota del alumno");
+        nota = Number(nota);
+        
+        if (isNaN(nota)) {
+            alert('La nota no es un número');
+        } else if (nota >= 0 && nota <= 10) {
+                if (nota == 0) {
+                    alert('NO PRESENTADO');
+                } else if (nota < 5) {
+                    alert('SUSPENSO');
+                } else if (nota >= 5 && nota < 6) {
+                    alert('APROBADO');
+                } else if (nota >= 6 && nota < 7) {
+                    alert('BIEN');
+                } else if (nota >= 7 && nota < 9) {8
+                    alert ('NOTABLE');
+                } else if (nota >= 9 && nota <= 10) {
+                    alert ('SOBRESALIENTE');
+                }
+            } else {
+                alert ('Error en la nota introducida');
+            }
+    </script>
+</body>
+</html>

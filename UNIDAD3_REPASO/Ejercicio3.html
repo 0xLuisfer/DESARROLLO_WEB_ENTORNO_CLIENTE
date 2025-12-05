@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3 para repaso del examen</title>
+</head>
+<body>
+    <script>
+        let cadena = prompt("Introduce una cadena de texto");
+        cadena = cadena.trim().toLowerCase();
+        let cadenaBuscar = "JavaScript";
+        cadenaBuscar = cadenaBuscar.toLowerCase();
+        let posicion = cadena.indexOf(cadenaBuscar);
+        let contador = 1; // empezamos en uno porque existe un primer intento antes de entrar al bucle
+
+        if (posicion != -1) {
+            let adivinarPosicion = Number(prompt("Adivine la posición en la que se encuentra la cadena"));
+            while (posicion != adivinarPosicion) {
+                if (posicion < adivinarPosicion) {
+                    adivinarPosicion = Number(prompt('La posición de la cadena es menor'));
+                } else {
+                    adivinarPosicion = Number(prompt('La posición de la cadena es mayor'));
+                }
+                contador++;
+            }
+            alert(`¡CORRECTO!. Número de intentos: ${contador}. El resto de la cadena es: ${cadena.slice(posicion + cadenaBuscar.length)}`)
+
+        } else {
+            alert('No se encontró la cadena')
+        }
+    </script>
+</body>
+</html>

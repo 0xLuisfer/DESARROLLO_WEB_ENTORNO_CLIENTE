@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+<body>
+    <script>
+        let precioBase = prompt("Introduce un precio base en euros"); //Introducimos cualquier precio
+        precioBase = parseFloat(precioBase); //Transformamos cadena de texto a número real
+
+        let descuento = prompt("Introduce un procentaje de descuento"); //Descuento que aplicaremos al precio base
+        descuento = parseFloat(descuento); //Transformamos cadena de texto a número real
+        
+        if (isNaN(precioBase) || isNaN(descuento)) { //Comprobación si son números o no
+            alert("No son números válidos");
+        } else {
+            precioDescontado = precioBase - (precioBase * (descuento / 100)); //Calculamos el precio con el descuento aplicado
+            precioDescontado = precioDescontado.toFixed(2); //Redondeamos a dos decimales
+            alert("El precio con el descuento es de " + precioDescontado + " euros");
+        }
+    </script>
+</body>
+</html>

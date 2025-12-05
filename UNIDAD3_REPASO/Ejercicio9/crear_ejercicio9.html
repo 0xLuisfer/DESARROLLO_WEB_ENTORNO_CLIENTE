@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear cookies (repaso para examen)</title>
+    <script>
+        function guardarCookies() {
+            document.cookie = `usuario=${nombre.value}; max-age=300`;
+            document.cookie = `edad=${edad.value}; max-age=300`;
+            alert(document.cookie);
+            window.location.href = "leer_ejercicio9.html";
+        }
+    </script>
+</head>
+<body>
+    <h2>Introduce tus datos</h2>
+    Nombre: <input type="text" placeholder="Tu nombre" required id="nombre"><br><br>
+    Edad: <input type="number" placeholder="Tu edad" required id="edad"><br><br>
+    <input type="button" value="Guardar y continuar" onclick="guardarCookies()">
+</body>
+</html>

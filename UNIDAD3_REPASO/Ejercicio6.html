@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6 para repaso del examen</title>
+    <script>
+        window.onload = function() {
+            let colorNuevo = prompt("Introduce un nuevo color para el texto h1");
+            let deseaResaltar = confirm("¿Desea resaltar el texto del párrafo con clase descripción?");
+
+            // cambiamos el color del h1
+            let h1 = document.getElementById('titulo');
+            h1.style.color = colorNuevo;
+
+            if (deseaResaltar) {
+                let p = document.getElementsByClassName('descripcion')[0];
+                let resaltado = document.getElementsByClassName('resaltado')[0];
+                p.classList.add('resaltado');
+                resaltado.classList.remove('resaltado');
+                let deseaOcultar = confirm('¿Desea ocultar el contenedor div?')
+                if (deseaOcultar) {
+                    let div = document.getElementsByClassName('contenedor')[0];
+                    div.style.display = 'none';
+                }
+            }
+        }
+    </script>
+    <style>
+        .resaltado {
+            background-color: yellow;
+            font-weight: bold;
+            padding: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="titulo">Bienvenido/a</h1>
+    <p class="descripcion">Este es un texto de prueba.</p>
+    <div class="contenedor">
+        <p class="resaltado">Este párrafo está dentro de un contenedor.</p>
+    </div>
+</body>
+</html>

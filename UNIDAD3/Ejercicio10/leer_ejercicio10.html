@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10 (leer)</title>
+</head>
+
+<body>
+    <h1>Bienvenido/a</h1>
+    <script>
+        // obtenemos los valores de localStorage y lo guardamos en una variable
+        let nombre = localStorage.getItem('nombre');
+        let edad = localStorage.getItem('edad');
+
+        if (nombre && edad) { // verificamos si existen esos datos
+            document.body.innerHTML += `<p>Hola, ${nombre}. Tienes ${edad} años.</p>`
+        } else {
+            document.write('No se encontraron datos. ');
+            document.body.innerHTML += "<a href='crear_ejercicio10.html'>Regresa a la página anterior</a><br>"
+        }
+
+        // función para borrar los daots guardados en localStorage
+        function borrarDatos() {
+            localStorage.removeItem('nombre');
+            localStorage.removeItem('edad');
+            window.location.reload(); // recargamos la página
+        }
+    </script>
+    <br>
+    <input type="button" value="Borrar datos" onclick="borrarDatos()">
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leer cookies (repaso para examen)</title>
+    <script>
+        
+        function leerCookie(nombre) {
+            // Separa un string en un array usando el caracter ;  como separador
+            let cookies = document.cookie.split(";");
+
+            for (let c of cookies) {
+                // Se pueden crear variables para clave y valor usando desestructuración
+                // Aún no se ha estudiado
+                //let [clave, valor] = c.trim().split("=");
+
+                // La clave es el primer elemento del array y el valor el segundo
+                let cadenaActual = c.trim().split("=");
+                if (cadenaActual[0] === nombre) {
+                    return decodeURIComponent(cadenaActual[1]);
+                }
+            }
+            return null;
+        }
+
+        function borrarCookies() {
+            document.cookie = "usuario=; max-age = -1";
+            document.cookie = "edad=; max-age = -1";
+            window.location.reload()
+        }
+
+        window.onload = function() {
+            let p = document.getElementById('cookies');
+            p.innerHTML = `Hola, ${leerCookie('usuario')}. Tienes ${leerCookie('edad')} años`;
+        }
+
+        if (!document.cookie) {
+            window.onload = function() {
+                let p = document.getElementById('cookies');
+                p.innerHTML = `No se encontraron cookies. <a href='crear_ejercicio9.html'>Volver a la página anterior</>`;
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <h2>Bienvenido/a</h2>
+    <p id="cookies"></p>
+    <input type="button" value="Borrar cookies" onclick="borrarCookies()">
+</body>
+
+</html>

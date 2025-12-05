@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop up ejercicio 8</title>
+    <script>
+        function cerrarVentana() {
+            let ventanaPrincipal = window.opener;
+            let iframe = ventanaPrincipal.document.getElementById("iframe");
+            iframe.contentDocument.body.innerHTML = `<h3>Mensaje de despedida desde el pop-up<h3>`;
+            window.close();
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

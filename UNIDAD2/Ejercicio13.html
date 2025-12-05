@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 13</title>
+</head>
+<body>
+    <script>
+        let nombre = prompt("Introduzca su nombre");
+        let genero = prompt("Introduzca su género (opcional)");
+
+        function saludo (nombre, genero = "no especificado") { // definimos funcion saludo y verificamos el valor de género
+            if (genero == 'masculino') {
+                alert('Bienvenido, ' + nombre);
+            } else if (genero == 'femenino') {
+                alert('Bienvenida, ' + nombre);
+            } else if (!genero) {
+                alert('Bienvenid@, ' + nombre);
+            }
+        }
+
+        function cadena() { // verificamos si el nombre está en blanco
+            if (!nombre) {
+                alert('ERROR: Debe introducir su nombre');
+                return;
+            } else {
+                saludo(nombre, genero); // Si el nombre no está en blanco llama a la función saludo()
+            }
+        }
+
+        cadena(); // Llamamos a la función cadena() para verificar si el nombre está en blanco o no, si no lo está llama a la función saludo()
+    </script>
+</body>
+</html>
