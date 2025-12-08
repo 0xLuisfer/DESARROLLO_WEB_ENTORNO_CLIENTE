@@ -82,4 +82,39 @@ function iniciarQuizClonado(temaClonado) {
     preguntasActuales = temaClonado.preguntas;
     indicePregunta = 0;
     document.getElementById("contenedorPreguntas").style.display = "block";
+    mostrarPregunta();
+}
+
+// funcion para ir mostrando las preguntas de cada tema
+function mostrarPregunta() {
+    if (indicePregunta < preguntasActuales.length) {
+        document.getElementById('tituloTematica').innerHTML = `${titulo}: pregunta ${contador}/6`
+        document.getElementById("preguntaTexto").innerHTML = preguntasActuales[indicePregunta].p;
+        document.getElementById("respuestaInput").value = "";
+        document.getElementById("puntuacion").innerHTML = `Puntuación actual: ${quiz.puntuacion_usuario}`;
+        contador += 1
+    } else {
+        // Si el usuario llega a la puntuación objetivo
+        if (quiz.puntuacion_usuario === quiz[puntuacionObjetivo]) {
+            document.body.innerHTML = `<h3>¡Felicidades ${nombre.value}, has logrado ${quiz.puntuacion_usuario} puntos!</h3>`
+        }
+        else {
+            document.body.innerHTML = `<h3>Mala suerte, ${nombre.value}. Has logrado ${quiz.puntuacion_usuario} puntos. <br>Vuelve a intentarlo y consigue ${quiz[puntuacionObjetivo]} para pasar a la siguiente sala.</h3>`
+        }
+    }
+}
+
+// validamos las respuestas del usuario
+function enviarRespuesta() {
+    let respuestaUsuario = document.getElementById("respuestaInput").value;
+    let respuestaCorrecta = preguntasActuales[indicePregunta].r;
+
+    if (quiz.validarRespuesta(respuestaUsuario, respuestaCorrecta)) {
+        quiz.puntuacion_usuario += 10;
+        document.getElementById("comentario").innerHTML = "Correcto";
+    } else {
+        document.getElementById("comentario").innerHTML = `Incorrecto. Respuesta correcta: ${respuestaCorrecta}`;
+    }
+    indicePregunta++;
+    mostrarPregunta();
 }
