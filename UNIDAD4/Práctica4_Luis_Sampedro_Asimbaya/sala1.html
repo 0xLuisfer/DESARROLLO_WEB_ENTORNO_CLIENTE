@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sala 1</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/sala1.js" defer></script>
 </head>
 <body>
     <h1>Juego QUIZ - SALA 1</h1>
-    <input type="text" placeholder="Introduzca su nombre"><br>
-    <p>Elija la temática del cuestionario</p>
-    <button onclick="">CAPITALES</button>
-    <button onclick="">MATEMÁTICAS</button>
-    <button onclick="">CULTURA GENERAL</button>
+    <input type="text" placeholder="Introduzca su nombre" id="nombre"><br>
+    <p>Elija la temática del cuestionario y consiga 60 puntos para pasar a la <br>siguiente sala (10 por respuesta correcta)</p>
+    <input type="button" onclick="preguntarCapitales()" value = "CAPITALES">
+    <input type="button" onclick="preguntarMatematicas()" value = "MATEMÁTICAS">
+    <input type="button" onclick="preguntarCultura()" value = "CULTURA GENERAL">
 </body>
 </html>

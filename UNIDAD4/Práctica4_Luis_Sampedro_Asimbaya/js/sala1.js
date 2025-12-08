@@ -9,9 +9,9 @@ const quiz1 = {
                 {p: "¿Cuál es la capital de España?", r: "Madrid"},
                 {p: "¿Cuál es la capital de Francia?", r: "Paris"},
                 {p: "¿Cuál es la capital de Italia?", r: "Roma"},
-                { p: "¿Cuál es la capital de Alemania?", r: "Berlín" },
-                { p: "¿Cuál es la capital de Portugal?", r: "Lisboa" },
-                { p: "¿Cuál es la capital de Reino Unido?", r: "Londres" }
+                {p: "¿Cuál es la capital de Alemania?", r: "Berlín" },
+                {p: "¿Cuál es la capital de Portugal?", r: "Lisboa" },
+                {p: "¿Cuál es la capital de Reino Unido?", r: "Londres" }
             ]
         },
         matematicas: {
@@ -39,6 +39,31 @@ const quiz1 = {
     validarRespuesta (respuestaUsuario, respuestaCorrecta) {
         return String(respuestaUsuario).trim().toLowerCase() == String(respuestaCorrecta).trim().toLowerCase();
     },
-    [puntuacionObjetivo] : 100
+    [puntuacionObjetivo] : 60
 };
+
+// funciones de boton tematica
+function preguntarCapitales() {
+    if (nombre.value) {
+        let capitalesClon = structuredClone(quiz1.tematica.capitales); // clonamos unicamente la seccion de preguntas de capitales
+    } else {
+        alert('Debe introducir un nombre para comenzar el juego');
+    }
+}
+
+function preguntarMatematicas() {
+    if (nombre.value) {
+        let matematicasClon = structuredClone(quiz1.tematica.matematicas); // clonamos unicamente la seccion de preguntas de matematicas
+    } else {
+        alert('Debe introducir un nombre para comenzar el juego');
+    }
+}
+
+function preguntarCultura() {
+    if (nombre.value) {
+        let culturaClon = structuredClone(quiz1.tematica.cultura); // clonamos unicamente la seccion de preguntas de matematicas
+    } else {
+        alert('Debe introducir un nombre para comenzar el juego');
+    }
+}
 
