@@ -1,6 +1,6 @@
 * {
-    font-family: 'Courier New', Courier, monospace;
-    background-color: rgb(243, 249, 194);
+    font-family:cursive;
+    background-color: rgb(230, 213, 165);
     text-align: center;
     padding: 30px;
 }
@@ -30,7 +30,7 @@ button {
 }
 
 button:hover {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(30, 171, 30);
     transform: scale(1.1);
 
 }

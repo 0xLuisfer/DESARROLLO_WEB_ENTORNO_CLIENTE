@@ -111,8 +111,10 @@ function enviarRespuesta() {
 
     if (quiz.validarRespuesta(respuestaUsuario, respuestaCorrecta)) {
         quiz.puntuacion_usuario += 10;
+        document.getElementById("comentario").style.color = 'green';
         document.getElementById("comentario").innerHTML = "Correcto";
     } else {
+        document.getElementById("comentario").style.color = 'red';
         document.getElementById("comentario").innerHTML = `Incorrecto. Respuesta correcta: ${respuestaCorrecta}`;
     }
     indicePregunta++;
