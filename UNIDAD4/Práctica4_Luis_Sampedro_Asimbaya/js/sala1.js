@@ -30,7 +30,7 @@ const quiz = {
                 {p: "¿Cuál es el planeta más grande de nuestro sistema solar?", r: "Júpiter"},
                 {p: "¿En qué año se acabó la segunda guerra mundial?", r: 1945},
                 {p: "¿Cuál es el océano más grande del mundo?", r: "Pacífico" },
-                {p: "Fórmula del gas que necesitan las plantas para realizar la fotosíntesis", r: "CO2"},
+                {p: "Fórmula del gas que necesitan las plantas para realizar la fotosíntesis.", r: "CO2"},
                 {p: "¿En qué año llegó el ser humano a la Luna?", r: 1969 }
             ]
         }
@@ -49,8 +49,8 @@ let titulo = ""
 function preguntarCapitales() {
     if (nombre.value.trim()) {
         let capitalesClon = structuredClone(quiz.tematica.capitales); // clonamos unicamente la seccion de preguntas de capitales
-        iniciarQuizClonado(capitalesClon)
         titulo = "Capitales";
+        iniciarQuizClonado(capitalesClon)
     } else {
         alert('Debe introducir un nombre para comenzar el juego');
     }
@@ -59,8 +59,8 @@ function preguntarCapitales() {
 function preguntarMatematicas() {
     if (nombre.value.trim()) {
         let matematicasClon = structuredClone(quiz.tematica.matematicas); // clonamos unicamente la seccion de preguntas de matematicas
-        iniciarQuizClonado(matematicasClon)
         titulo = "Matemáticas";
+        iniciarQuizClonado(matematicasClon)
     } else {
         alert('Debe introducir un nombre para comenzar el juego');
     }
@@ -69,8 +69,8 @@ function preguntarMatematicas() {
 function preguntarCultura() {
     if (nombre.value.trim()) {
         let culturaClon = structuredClone(quiz.tematica.cultura); // clonamos unicamente la seccion de preguntas de matematicas
-        iniciarQuizClonado(culturaClon)
         titulo = "Cultura";
+        iniciarQuizClonado(culturaClon)
     } else {
         alert('Debe introducir un nombre para comenzar el juego');
     }
@@ -94,12 +94,12 @@ function mostrarPregunta() {
         document.getElementById("puntuacion").innerHTML = `Puntuación actual: ${quiz.puntuacion_usuario}`;
         contador += 1
     } else {
-        // Si el usuario llega a la puntuación objetivo
+        // al finalizar la lista de preguntas se valora si alncaza la puntuacoón objetivo
         if (quiz.puntuacion_usuario === quiz[puntuacionObjetivo]) {
-            document.body.innerHTML = `<h3>¡Felicidades ${nombre.value}, has logrado ${quiz.puntuacion_usuario} puntos!</h3>`
+            document.body.innerHTML = `<h3>¡Felicidades ${nombre.value}, has logrado ${quiz.puntuacion_usuario} puntos!</h3><input type='button' value='Siguiente sala' onclick='pasarSala()'> <input type='button' value='Volver al inicio' onclick='volverInicio()'>`
         }
         else {
-            document.body.innerHTML = `<h3>Mala suerte, ${nombre.value}. Has logrado ${quiz.puntuacion_usuario} puntos. <br>Vuelve a intentarlo y consigue ${quiz[puntuacionObjetivo]} para pasar a la siguiente sala.</h3>`
+            document.body.innerHTML = `<h3>Mala suerte, ${nombre.value}. Has logrado ${quiz.puntuacion_usuario} puntos. <br>Vuelve a intentarlo y consigue ${quiz[puntuacionObjetivo]} para pasar a la siguiente sala.</h3><input type='button' value='Volver al inicio' onclick='volverInicio()'>`
         }
     }
 }
@@ -117,4 +117,14 @@ function enviarRespuesta() {
     }
     indicePregunta++;
     mostrarPregunta();
+}
+
+// funcion ejecutada al llegar a 60 puntos y pulsar botón de 'siguiente sala'
+function pasarSala() {
+    window.location.href = 'sala2.html';
+}
+
+// funcion ejecutada al llegar a 60 puntos y pulsar botón de 'volver a inicio'
+function volverInicio() {
+    window.location.reload()
 }
