@@ -8,11 +8,26 @@
     <script src="js/sala1.js" defer></script>
 </head>
 <body>
-    <h1>Juego QUIZ - SALA 1</h1>
-    <input type="text" placeholder="Introduzca su nombre" id="nombre"><br>
-    <p>Elija la temática del cuestionario y consiga 60 puntos para pasar a la <br>siguiente sala (10 por respuesta correcta)</p>
-    <input type="button" onclick="preguntarCapitales()" value = "CAPITALES">
-    <input type="button" onclick="preguntarMatematicas()" value = "MATEMÁTICAS">
-    <input type="button" onclick="preguntarCultura()" value = "CULTURA GENERAL">
+    <!--- Sección para mostrar al inicio de la sala --->
+    <div id="menuInicio">
+        <h1>Juego QUIZ - SALA 1</h1>
+        <input type="text" placeholder="Nombre" id="nombre"><br>
+        <p>Elija la temática del cuestionario y consiga 60 puntos para pasar a la <br>siguiente sala (10 por respuesta correcta)</p>
+        <input type="button" onclick="preguntarMatematicas()" value = "MATEMÁTICAS">
+        <input type="button" onclick="preguntarCultura()" value = "CULTURA GENERAL">
+        <input type="button" onclick="preguntarCapitales()" value = "CAPITALES">
+    </div>
+
+    <!--- Añadimos sección para mostrar preguntas --->
+    <div id="contenedorPreguntas" style="display:none;">
+        <h2 id="tituloTematica"></h2>
+        <p id="preguntaTexto"></p>
+
+        <input id="respuestaInput" type="text" placeholder="Escribe tu respuesta">
+        <button onclick="enviarRespuesta()">Responder</button>
+
+        <p id="comentario"></p>
+        <p id="puntuacion"></p>
+    </div>
 </body>
 </html>
