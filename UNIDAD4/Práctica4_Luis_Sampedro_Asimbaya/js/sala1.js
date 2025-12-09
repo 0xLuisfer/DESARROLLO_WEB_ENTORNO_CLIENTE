@@ -1,4 +1,4 @@
-const puntuacionObjetivo = Symbol("Puntuación necesaria para pasar a la siguiente sala")
+const puntuacionObjetivo = Symbol("puntuación necesaria para pasar a la siguiente sala")
 
 const quiz = {
     titulo: "Quiz sala 1",
@@ -42,6 +42,30 @@ const quiz = {
     [puntuacionObjetivo] : 60
 };
 
+// mostrar por consola el objeto original
+function recorrerObjeto(obj) {
+    for (let key in obj) {
+        // Si la propiedad es un objeto
+        if (typeof obj[key] == "object") {
+            console.log(`${key} es un objeto con los siguientes valores:`);
+            for (let subKey in obj[key]) {
+            console.log(`${subKey}: ${obj[key][subKey]}`);
+            }
+        } else if (typeof obj[key] != "function"){
+            // Si no es un objeto, mostrar su valor directamente
+            console.log(`${key}: ${obj[key]}`);
+        }
+    }
+}  
+recorrerObjeto(quiz);
+
+function recorrerObjetoClonado(obj) {
+    for (let i=0; i< obj.length; i++) {
+        console.log(`${obj[i]}.${p}:${obj[i]}.${r}`);
+    }
+}
+
+
 let contador = 1
 let titulo = ""
 
@@ -76,6 +100,7 @@ function preguntarCultura() {
     }
 }
 
+
 // funcion para iniciar cuestionario clonado - se oculta menu de inicio y se muestra menu de preguntas
 function iniciarQuizClonado(temaClonado) {
     document.getElementById('menuInicio').style.display = "none";
@@ -83,6 +108,8 @@ function iniciarQuizClonado(temaClonado) {
     indicePregunta = 0;
     document.getElementById("contenedorPreguntas").style.display = "block";
     mostrarPregunta();
+    // recorrer objeto clonado
+    recorrerObjetoClonado(temaClonado);
 }
 
 // funcion para ir mostrando las preguntas de cada tema
@@ -99,7 +126,7 @@ function mostrarPregunta() {
             document.body.innerHTML = `<h3>¡Felicidades ${nombre.value}, has logrado ${quiz.puntuacion_usuario} puntos!</h3><input type='button' value='Siguiente sala' onclick='pasarSala()'> <input type='button' value='Volver al inicio' onclick='volverInicio()'>`
         }
         else {
-            document.body.innerHTML = `<h3>Mala suerte, ${nombre.value}. Has logrado ${quiz.puntuacion_usuario} puntos. <br>Vuelve a intentarlo y consigue ${quiz[puntuacionObjetivo]} para pasar a la siguiente sala.</h3><input type='button' value='Volver al inicio' onclick='volverInicio()'>`
+            document.body.innerHTML = `<h3>Mala suerte, ${nombre.value}. Has logrado ${quiz.puntuacion_usuario} puntos. <br>Vuelve a intentarlo y consigue ${quiz[puntuacionObjetivo]}, ${puntuacionObjetivo.description}.</h3><input type='button' value='Volver al inicio' onclick='volverInicio()'>`
         }
     }
 }
