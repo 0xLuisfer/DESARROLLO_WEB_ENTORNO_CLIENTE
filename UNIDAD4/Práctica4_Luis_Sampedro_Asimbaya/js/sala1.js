@@ -60,8 +60,9 @@ function recorrerObjeto(obj) {
 recorrerObjeto(quiz);
 
 function recorrerObjetoClonado(obj) {
-    for (let i=0; i< obj.length; i++) {
-        console.log(`${obj[i]}.${p}:${obj[i]}.${r}`);
+    for (let i = 0; i < obj.preguntas.length; i++) {
+        console.log("Pregunta " + obj.preguntas[i].p);
+        console.log("Respuesta: " + obj.preguntas[i].r);
     }
 }
 
