@@ -11,10 +11,15 @@
     <h1>Juego QUIZ - SALA 2</h1>
     <!--- Primer juego: ordenar las palabras por orden alfabético --->
     <div id="contenedorPrimerJuego">
-        <h2>Ordena las siguientes marcas de coches por orden alfabético</h2>
+        <h2 id="titulo">Ordena las siguientes marcas de coches por orden alfabético</h2>
         <p id="arrayOrdenar"></p>
         <input type="text" id="respuestaUsuario">
-        <button onclick="enviarRespuesta()">Enviar</button>
+        <button onclick="enviarRespuesta()" id="botonUsuario">Enviar</button>
+    </div>
+
+    <div id="contenedorSegundoJuego" style="display: none;">
+        <h2 id="titulo">Segundo Juego</h2>
+        <p>Uno de los coches de la lista anterior esconde la llave que te permitirá arrancarlo y escapar. Para encontrarlo, deberás seguir las pistas.</p>
     </div>
 
 </body>
