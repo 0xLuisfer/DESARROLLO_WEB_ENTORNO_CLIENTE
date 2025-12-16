@@ -56,7 +56,7 @@ function recorrerObjeto(obj) {
             console.log(`${key}: ${obj[key]}`);
         }
     }
-}  
+}
 recorrerObjeto(quiz);
 
 function recorrerObjetoClonado(obj) {
@@ -124,7 +124,7 @@ function mostrarPregunta() {
     } else {
         // al finalizar la lista de preguntas se valora si alncaza la puntuacoón objetivo
         if (quiz.puntuacion_usuario === quiz[puntuacionObjetivo]) {
-            document.body.innerHTML = `<h3>¡Felicidades ${nombre.value}, has logrado ${quiz.puntuacion_usuario} puntos!</h3><input type='button' value='Siguiente sala' onclick='pasarSala()'> <input type='button' value='Volver al inicio' onclick='volverInicio()'>`
+            document.body.innerHTML = `<h3>¡Felicidades ${nombre.value}, has logrado ${quiz.puntuacion_usuario} puntos!</h3><input type='button' value='Siguiente sala' onclick='pasarSegundaSala()'> <input type='button' value='Volver al inicio' onclick='volverInicio()'>`
         }
         else {
             document.body.innerHTML = `<h3>Mala suerte, ${nombre.value}. Has logrado ${quiz.puntuacion_usuario} puntos. <br>Vuelve a intentarlo y consigue ${quiz[puntuacionObjetivo]}, ${puntuacionObjetivo.description}.</h3><input type='button' value='Volver al inicio' onclick='volverInicio()'>`
@@ -150,7 +150,7 @@ function enviarRespuesta() {
 }
 
 // funcion ejecutada al llegar a 60 puntos y pulsar botón de 'siguiente sala'
-function pasarSala() {
+function pasarSegundaSala() {
     window.location.href = 'sala2.html';
 }
 
