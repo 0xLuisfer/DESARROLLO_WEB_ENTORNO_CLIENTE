@@ -17,9 +17,10 @@
         <p id="arrayOrdenar"></p>
     </div>
 
+    <!--- Segundo juego: seguir las pistas y adivinar la palabra --->
     <div id="contenedorSegundoJuego" style="display: none;">
         <h1>Juego QUIZ - SALA 2</h1>
-        <p>Uno de los coches de la lista anterior esconde la llave que te permitirá arrancarlo y escapar a la siguiente sala. Para encontrarlo, deberás seguir las pistas.</p>
+        <p id="enunciado2">Uno de los coches de la lista anterior esconde la llave que te permitirá usarlo. Para encontrarla, deberás seguir las pistas.</p>
         <div id="botonesAdivinanza">
             <button onclick="mostrarPistaPais()" id="boton1">Pista 1</button>
             <button onclick="mostrarPistaVocal()" id="boton2">Pista 2</button>
@@ -30,6 +31,20 @@
         <p id="pista"></p>
         <input type="text" id="adivinanzaUsuario">
         <button onclick="usuarioAdivina()" id="botonEnviar">Enviar</button>
+        <p id="pasarReto"></p>
+    </div>
+
+    <!--- Tercer juego: Adivinar contraseña del sistema del vehículo --->
+    <div id="contenedorTercerJuego" style="display: none;">
+        <h1>Juego QUIZ - SALA 2</h1>
+        <p>¡Oh, no! Te has dado cuenta que el coche tiene una contraseña para poder arrancarlo. Si quieres pasar a la siguiente sala deberás introducirla correctamente.<br>
+            Pista: La palabra tiene 5 letras y no se repite ninguna</p>
+        <input type="text" id="letraUsuario" style="width: 25px";>
+        <button onclick='probarLetra()' id="botonEnviarLetra">Probar letra</button>
+        <input type="text" id="contraseñaUsuario">
+        <button onclick='enviarContraseña()' id="botonEnviarContraseña">Enviar contraseña</button>
+        <p id="letrasCorrectas">Letras correctas: </p>
+        <p id="letrasIncorrectas"></p>
     </div>
 </body>
 </html>

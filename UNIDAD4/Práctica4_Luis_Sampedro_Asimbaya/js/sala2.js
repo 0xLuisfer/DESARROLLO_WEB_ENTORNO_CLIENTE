@@ -54,7 +54,7 @@ function compararArrays() {
     if (marcasOrdenadas.join().toLowerCase() == ordenUsuario.join().toLowerCase()) {
         document.getElementById('titulo').style.color = "green";
         document.getElementById('titulo').innerHTML = `¡Felicidades! Has ordenado todos los elementos correctamente.`
-        parrafoEnunciado.innerHTML = `Has logrado pasar a la segunda parte de este reto<br><button onclick='segundoReto()'>Segunda parte</button>`;
+        parrafoEnunciado.innerHTML = `Has logrado pasar a la segunda parte de este reto.<br><button onclick='segundoReto()'>Segunda parte</button>`;
         // escondemos input y botón de respuesta
         document.getElementById('botonUsuario').style.display = 'none';
         document.getElementById('respuestaUsuario').style.display = 'none';
@@ -129,10 +129,13 @@ function usuarioAdivina() {
     if (inputUsuario) {
         if (inputUsuario.toLowerCase() == "honda") {
             document.getElementById('pista').style.color = `green`;
-            document.getElementById('pista').innerHTML = `¡CORRECTO! Has podido arrancar el coche`;
+            document.getElementById('pista').innerHTML = `¡CORRECTO! Encontraste la llave del coche`;
+            // escondemos todos los elementos necesarios y mostralos botón para pasar a la siguiente sala
             document.getElementById('botonesAdivinanza').style.display = `none`;
             document.getElementById('adivinanzaUsuario').style.display = `none`;
             document.getElementById('botonEnviar').style.display = `none`;
+            document.getElementById('enunciado2').style.display = `none`;
+            document.getElementById('pasarReto').innerHTML = `Has logrado pasar a la siguiente parte de este reto.<br><button onclick='tercerReto()'>Tercera parte</button>`
         } else {
             alert('Respuesta incorrecta, volverás al último punto de control');
             window.location.reload();
@@ -142,3 +145,61 @@ function usuarioAdivina() {
     }
 }
 
+function tercerReto() {
+    // escondemos dos primeros contenedores y mostramos tercer contenedor
+    document.getElementById('contenedorPrimerJuego').style.display = "none";
+    document.getElementById('contenedorSegundoJuego').style.display = "none";
+    document.getElementById('contenedorTercerJuego').style.display = "block";
+}
+
+let contraseña = "huida";
+let arrayIncorrectas = [];
+let arrayCorrectas = [];
+
+// se crea un array una letra por elemento del array
+let letrasContraseña = Array.from(contraseña);
+
+function probarLetra() {
+    let letra = letraUsuario.value.trim().toLowerCase();
+    if (letra) {
+        if (letrasContraseña.includes(letra)) {
+            document.getElementById('letrasCorrectas').style.color = `green`;
+            document.getElementById('letrasCorrectas').innerHTML += `${letra} - `;
+            let indice = letrasContraseña.indexOf(letra);
+                // borramos letra del array original para no repetir
+                letrasContraseña.splice(indice, 1);
+                if (letrasContraseña.length == 0) {
+                    document.getElementById('letrasCorrectas').style.color = `green`;
+                    document.getElementById('letrasCorrectas').innerHTML += `<br>No hay más letras`;
+                }
+        } else {
+            document.getElementById('letrasIncorrectas').style.color = `red`;
+            document.getElementById('letrasIncorrectas').innerHTML = `No contiene esta letra o está repetida: ${letra}`;
+        }
+        // vaciamos el input
+        document.getElementById('letraUsuario').value = "";
+    } else {
+        alert('Debes introducir una letra en el campo')
+    }
+    
+}
+
+function enviarContraseña() {
+    let contraseñaUsuarioFormateada = contraseñaUsuario.value.trim().toLowerCase()
+    if (contraseñaUsuarioFormateada) {
+        if (contraseñaUsuarioFormateada == contraseña) {
+            document.body.innerHTML = `<h3>¡Felicidades, has pasado todos los retos de esta sala!</h3><br><input onclick='pasarTerceraSala()' value='Siguiente sala'><input onclick='volverInicio()' value='Volver al inicio'>`;
+        } else {
+            alert('Contraseña incorrecta, volverás al último punto de control');
+            window.location.reload();
+        }
+    }
+}
+
+function pasarTerceraSala() {
+    window.location.href = 'sala3.html';
+}
+
+function volverInicio() {
+    window.location.reload();
+}
