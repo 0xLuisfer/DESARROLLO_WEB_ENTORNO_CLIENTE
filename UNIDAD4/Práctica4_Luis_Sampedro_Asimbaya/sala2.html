@@ -11,7 +11,7 @@
     <!--- Primer juego: ordenar las palabras por orden alfabético --->
     <div id="contenedorPrimerJuego">
         <h1>Juego QUIZ - SALA 2</h1>
-        <p id="titulo">Ordena las marcas de coches por orden alfabético. La lista no te mostrará si te estás equivocando hasta introducir todas las marcas.</p>
+        <p id="titulo">Ahora debes ordenar las marcas de coches por orden alfabético. No se te mostrará si te estás equivocando hasta introducir todas las marcas.</p>
         <input type="text" id="respuestaUsuario">
         <button onclick="enviarRespuesta()" id="botonUsuario">Enviar</button>
         <p id="arrayOrdenar"></p>
@@ -19,7 +19,6 @@
 
     <div id="contenedorSegundoJuego" style="display: none;">
         <h1>Juego QUIZ - SALA 2</h1>
-        <h3>Segundo Juego</h3>
         <p>Uno de los coches de la lista anterior esconde la llave que te permitirá arrancarlo y escapar a la siguiente sala. Para encontrarlo, deberás seguir las pistas.</p>
         <div id="botonesAdivinanza">
             <button onclick="mostrarPistaPais()" id="boton1">Pista 1</button>
@@ -30,7 +29,7 @@
         </div>
         <p id="pista"></p>
         <input type="text" id="adivinanzaUsuario">
-        <button onclick="usuarioAdivina()">Enviar</button>
+        <button onclick="usuarioAdivina()" id="botonEnviar">Enviar</button>
     </div>
 </body>
 </html>
