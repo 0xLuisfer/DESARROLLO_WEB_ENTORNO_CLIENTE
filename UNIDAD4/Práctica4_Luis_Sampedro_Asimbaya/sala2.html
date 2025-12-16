@@ -8,24 +8,29 @@
     <script src="js/sala2.js" defer></script>
 </head>
 <body>
-    <h1>Juego QUIZ - SALA 2</h1>
-    
     <!--- Primer juego: ordenar las palabras por orden alfabético --->
     <div id="contenedorPrimerJuego">
-        <h2 id="titulo">Ordena las siguientes marcas de coches por orden alfabético</h2>
-        <p id="arrayOrdenar"></p>
+        <h1>Juego QUIZ - SALA 2</h1>
+        <p id="titulo">Ordena las marcas de coches por orden alfabético. La lista no te mostrará si te estás equivocando hasta introducir todas las marcas.</p>
         <input type="text" id="respuestaUsuario">
         <button onclick="enviarRespuesta()" id="botonUsuario">Enviar</button>
+        <p id="arrayOrdenar"></p>
     </div>
 
     <div id="contenedorSegundoJuego" style="display: none;">
+        <h1>Juego QUIZ - SALA 2</h1>
         <h3>Segundo Juego</h3>
         <p>Uno de los coches de la lista anterior esconde la llave que te permitirá arrancarlo y escapar a la siguiente sala. Para encontrarlo, deberás seguir las pistas.</p>
-        <button onclick="desplegarPista1()" id="pista1">Pista 1</button><p id="pista1"></p>
-        <button onclick="desplegarPista2()" id="pista2">Pista 2</button><p id="pista1"></p>
-        <button onclick="desplegarPista3()" id="pista3">Pista 3</button><p id="pista1"></p>
-        <button onclick="desplegarPista4()" id="pista4">Pista 4</button><p id="pista1"></p>
-        <button onclick="desplegarPista5()" id="pista5">Pista 5</button><p id="pista1"></p>
+        <div id="botonesAdivinanza">
+            <button onclick="mostrarPistaPais()" id="boton1">Pista 1</button>
+            <button onclick="mostrarPistaVocal()" id="boton2">Pista 2</button>
+            <button onclick="mostrarPistaAño()" id="boton3">Pista 3</button>
+            <button onclick="mostrarPistaModelo()" id="boton4">Pista 4</button>
+            <button onclick="mostrarPistaCaracteristica()" id="boton5">Pista 5</button>
+        </div>
+        <p id="pista"></p>
+        <input type="text" id="adivinanzaUsuario">
+        <button onclick="usuarioAdivina()">Enviar</button>
     </div>
 </body>
 </html>
