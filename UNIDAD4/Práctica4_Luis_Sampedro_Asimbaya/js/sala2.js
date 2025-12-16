@@ -25,14 +25,14 @@ function enviarRespuesta() {
                 for (let marca of marcasCoches) {
                     parrafoEnunciado.innerHTML += `[${marca}] `;
                 }
+                // guardamos en un array nuevo las palabras introducidas por el usuario
+                ordenUsuario.push(marcaUsuario);
             } else {
                 alert('La palabra introducida no se encuentra dentro de la lista')
                 for (let marca of marcasCoches) {
                     parrafoEnunciado.innerHTML += `[${marca}] `;
                 }
             }
-            // guardamos en un array nuevo las palabras introducidas por el usuario
-            ordenUsuario.push(marcaUsuario);
             // hacemos llamada a la funcion cuando no queden elementos en el array original
             if (marcasCoches.length == 0) {
                     compararArrays();
@@ -69,7 +69,43 @@ function recargarPagina() {
     window.location.reload()
 }
 
+// escondemos el primer juego y mostramos contenedor del segundo juego
 function segundoReto() {
     document.getElementById('contenedorPrimerJuego').style.display = "none";
     document.getElementById('contenedorSegundoJuego').style.display = "block";
 }
+
+
+// Creamos map donde almacenaremos las pistas
+let pistasMap = new Map();
+
+// objeto de pistas que pasaremos por parámetro
+let pistasHonda = {pais: "Japón", vocales: 2, año: 1948, modelo: "Accord", característica: "Fiable"};
+
+// introducimos clave "Honda" (por si creamos pistas para otros coches) y el objeto de pistasHonda como parámetros dentro de nuesto pistasMap
+pistasMap.set("Honda", pistasHonda);
+
+// convertimos en un array clave,valor con Object.entries y metememos por parámetro el objeto que hemos creado de pistas
+let arrayPistas = Object.entries(pistasMap.get('Honda'));
+
+
+function desplegarPista1() {
+    
+}
+
+function desplegarPista1() {
+    
+}
+
+function desplegarPista1() {
+    
+}
+
+function desplegarPista1() {
+    
+}
+
+function desplegarPista1() {
+    
+}
+
