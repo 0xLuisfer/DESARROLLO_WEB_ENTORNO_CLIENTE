@@ -91,6 +91,18 @@ pistasMap.set("Honda", pistasHonda);
 // convertimos en un array clave,valor con Object.entries y metememos por parámetro el objeto que hemos creado de pistas, lo guardamos en una variable
 let arrayPistas = Object.entries(pistasMap.get('Honda'));
 
+// recorremos array con su clave, valor
+for (let [clave, valor] of arrayPistas) {
+    console.log(clave + ": " + valor);
+} 
+
+ // recorremos dos veces ya dentro del map hay un objeto como segundo parámetro
+for (let pista of pistasMap.values()) {
+    for (pistaValor of Object.entries(pista)) {
+        console.log(pistaValor)
+    }
+}
+
 
 function mostrarPistaPais() {
     // desestructuración del primer elemento de arrayPistas [país, japón]
