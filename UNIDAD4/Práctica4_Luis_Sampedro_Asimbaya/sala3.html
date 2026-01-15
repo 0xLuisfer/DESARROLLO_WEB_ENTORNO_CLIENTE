@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sala 3</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/sala3.js"></script>
+    <script src="js/sala3.js" defer></script>
 </head>
 <body>
-    <h1>Juego QUIZ - SALA 2</h1>
-    <p></p>
+    <h1>Juego QUIZ - SALA 3</h1>
+    <p id="enunciado">Con el coche con el que lograste escapar, has llegado a un castillo en ruinas donde tendrás que pelear con el dragón final para volver a casa.<br><br>
+    Antes debes elegir el tipo de héroe que quieres ser:</p>
+    <button onclick="crearSanador()" id="sanador">Sanador</button>
+    <button onclick="crearTanque()" id="tanque">Tanque</button>
+    <button onclick="crearLuchador()" id="luchador">Luchador</button>
+    <input type="text" id="nombrePersonaje" placeholder="Nombre del personaje">
 </body>
 </html>
