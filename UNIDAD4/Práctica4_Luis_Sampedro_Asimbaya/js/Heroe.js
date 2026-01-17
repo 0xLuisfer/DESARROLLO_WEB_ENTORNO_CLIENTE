@@ -25,7 +25,7 @@ export default class Heroe {
             this.#vida = this.#vida + cantidad;
             this.#curacionesUsadas++;
         } else {
-            alert('Tu personaje ha alcanzado el máximo de curaciones (3)');
+            throw new Error('Tu personaje ha alcanzado el máximo de curaciones (3)');
         }
     }
 

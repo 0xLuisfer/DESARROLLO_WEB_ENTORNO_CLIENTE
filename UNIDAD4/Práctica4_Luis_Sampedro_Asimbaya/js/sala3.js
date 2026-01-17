@@ -38,7 +38,7 @@ window.crearLuchador = function () {
         alert(luchador1.mostrarVida());
         document.getElementById('eleccionPersonaje').style.display = 'none';
         document.getElementById('juego').style.display = 'block';
-        document.getElementById('botonCuracion').style.display = 'none';
+        document.getElementById('botonCuracion').style.display = 'hidden';
         monstruo1 = new Monstruo('Geodude');
         alert(monstruo1.mostrarVida());
         mostrarOutput();
@@ -57,7 +57,7 @@ window.crearTanque = function () {
         alert(tanque1.mostrarVida());
         document.getElementById('eleccionPersonaje').style.display = 'none';
         document.getElementById('juego').style.display = 'block';
-        document.getElementById('botonCuracion').style.display = 'none';
+        document.getElementById('botonCuracion').style.visibility = 'hidden';
         monstruo1 = new Monstruo('Geodude');
         alert(monstruo1.mostrarVida());
         mostrarOutput();
@@ -66,30 +66,55 @@ window.crearTanque = function () {
     }
 }
 
-
+// boton atacar a monstruo
 window.atacarMonstruo = function () {
     if (luchador1) {
         luchador1.atacar(monstruo1);
-        monstruo1.atacar(luchador1);
-        mostrarOutput();
-        
+
     } else if (tanque1) {
         tanque1.atacar(monstruo1);
+
+    } else {
+        curandero1.atacar(monstruo1);
+    }
+    document.getElementById('botonCuracion').style.visibility = 'hidden';
+    document.getElementById('botonAtaque').style.visibility = 'hidden';
+    document.getElementById('turnoRival').style.visibility = 'visible';
+    mostrarOutput();
+}
+
+// boton curarse curandero
+window.curarHeroe = function () {
+    if (curandero1) {
+        try {
+            curandero1.curarse();
+            document.getElementById('botonAtaque').style.visibility = 'hidden';
+            document.getElementById('botonCuracion').style.visibility = 'hidden';
+            document.getElementById('turnoRival').style.visibility = 'visible';
+            mostrarOutput();
+        } catch (err){
+            alert(err.message);
+        }
+    }
+}
+
+// boton atacar a Heroe
+window.atacarHeroe = function () {
+    if (luchador1) {
+    monstruo1.atacar(luchador1);
+    mostrarOutput();
+        
+    } else if (tanque1) {
         monstruo1.atacar(tanque1);
         mostrarOutput();
 
     } else {
-        curandero1.atacar(monstruo1);
         monstruo1.atacar(curandero1);
         mostrarOutput();
+        document.getElementById('botonCuracion').style.visibility = 'visible';
     }
-}
-
-window.curarHeroe = function () {
-    if (curandero1) {
-        curandero1.curarse();
-        mostrarOutput();
-    }
+    document.getElementById('botonAtaque').style.visibility = 'visible';
+    document.getElementById('turnoRival').style.visibility = 'hidden';
 }
 
 let output = document.getElementById('output');
