@@ -1,7 +1,8 @@
-class Monstruo {
+export default class Monstruo {
 #vida
 #vidaMaxima
-    contructor() {
+    constructor(nombre) {
+        this.nombre = nombre
         this.#vidaMaxima = 100;
         this.#vida = 100;
         this.daño = 10;
@@ -20,10 +21,10 @@ class Monstruo {
     }
 
     recibirDaño(cantidad) {
-        this.vida -= cantidad;
+        this.#vida -= cantidad;
     }
 
     mostrarVida() {
-        return `Al monstruo le quedan ${this.daño} puntos de vida`;
+        return `Al monstruo ${this.nombre} le quedan ${this.#vida} puntos de vida`;
     }
 }

@@ -8,12 +8,22 @@
     <script src="js/sala3.js" type="module" defer></script>
 </head>
 <body>
-    <h1>Juego QUIZ - SALA 3</h1>
-    <p id="enunciado">Con el coche con el que lograste escapar, has llegado a un castillo en ruinas donde tendrás que pelear con el dragón final para volver a casa.<br><br>
-    Antes debes elegir el tipo de héroe que quieres ser:</p>
-    <button onclick='crearCurandero()' id="curandero">Curandero</button>
-    <button onclick='crearTanque()' id="tanque">Tanque</button>
-    <button onclick='crearLuchador()' id="luchador">Luchador</button><br>
-    <input type="text" id="nombrePersonaje" placeholder="Nombre del personaje">
+    <div id="eleccionPersonaje">
+        <h1>Juego QUIZ - SALA 3</h1>
+        <p id="enunciado">Con el coche con el que lograste escapar, has llegado a un castillo en ruinas donde tendrás que pelear con el monstruo final para volver a casa.<br><br>
+        Antes debes elegir el tipo de héroe que quieres ser:</p>
+        <button onclick='crearCurandero()' id="curandero">Curandero</button>
+        <button onclick='crearTanque()' id="tanque">Tanque</button>
+        <button onclick='crearLuchador()' id="luchador">Luchador</button><br>
+        <input type="text" id="nombrePersonaje" placeholder="Nombre del personaje">
+    </div>
+
+    <div id="juego" style="display: none;">
+        <h1>Juego QUIZ - SALA 3</h1>
+        <p>Puedes realizar estas acciones con tu personaje:</p>
+        <button onclick="atacarMonstruo()" id="botonAtaque" >Atacar</button>
+        <button onclick="curarHeroe()" id="botonCuracion" >Curar</button>
+        <p style="display: none;" id="output"></p>
+    </div>
 </body>
 </html>

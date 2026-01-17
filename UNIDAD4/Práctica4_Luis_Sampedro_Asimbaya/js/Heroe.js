@@ -32,6 +32,6 @@ export default class Heroe {
     }
 
     mostrarVida() {
-        return `A tu personaje le quedan ${this.vida} puntos de vida`;
+        return `A tu personaje ${this.nombre} le quedan ${this.vida} puntos de vida`;
     }
 }
