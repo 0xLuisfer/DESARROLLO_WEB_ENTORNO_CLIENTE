@@ -13,6 +13,11 @@ export class Luchador extends Heroe {
     }
 
     atacar(monstruo) {
-        monstruo.recibirDaño(this.daño);
+        // probabilidades para que luchador ataque
+        if (Math.random() < 0.6) {
+            monstruo.recibirDaño(this.daño);
+        } else {
+            alert(`Tu personaje ${this.nombre} ha fallado el ataque`);
+        }
     }
 }

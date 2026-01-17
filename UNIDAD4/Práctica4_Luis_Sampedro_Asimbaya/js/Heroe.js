@@ -1,6 +1,8 @@
 export default class Heroe {
     #vida;
     #vidaMaxima;
+    #maxCuraciones = 3;
+    #curacionesUsadas = 0;
 
     constructor(nombre) {
         this.nombre = nombre;
@@ -19,7 +21,12 @@ export default class Heroe {
     }
 
     curar(cantidad) {
-        this.#vida = this.#vida + cantidad;
+        if (this.#curacionesUsadas < this.#maxCuraciones) {
+            this.#vida = this.#vida + cantidad;
+            this.#curacionesUsadas++;
+        } else {
+            alert('Tu personaje ha alcanzado el máximo de curaciones (3)');
+        }
     }
 
     recibirDaño(cantidad) {

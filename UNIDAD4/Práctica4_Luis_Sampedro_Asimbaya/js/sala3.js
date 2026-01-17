@@ -1,4 +1,3 @@
-import Heroe from './Heroe.js';
 import Monstruo from './Monstruo.js'
 import {Luchador} from './Luchador.js';
 import {Curandero} from './Curandero.js';
@@ -23,6 +22,7 @@ window.crearCurandero = function () {
         // creamos también instancia de la clase Monstruo
         monstruo1 = new Monstruo('Geodude');
         alert(monstruo1.mostrarVida());
+        mostrarOutput();
     } catch(err) {
             alert(err.message)
     }
@@ -41,6 +41,7 @@ window.crearLuchador = function () {
         document.getElementById('botonCuracion').style.display = 'none';
         monstruo1 = new Monstruo('Geodude');
         alert(monstruo1.mostrarVida());
+        mostrarOutput();
     } catch(err) {
             alert(err.message)
     }
@@ -59,20 +60,24 @@ window.crearTanque = function () {
         document.getElementById('botonCuracion').style.display = 'none';
         monstruo1 = new Monstruo('Geodude');
         alert(monstruo1.mostrarVida());
+        mostrarOutput();
     } catch(err) {
             alert(err.message)
     }
 }
+
 
 window.atacarMonstruo = function () {
     if (luchador1) {
         luchador1.atacar(monstruo1);
         monstruo1.atacar(luchador1);
         mostrarOutput();
+        
     } else if (tanque1) {
         tanque1.atacar(monstruo1);
         monstruo1.atacar(tanque1);
         mostrarOutput();
+
     } else {
         curandero1.atacar(monstruo1);
         monstruo1.atacar(curandero1);

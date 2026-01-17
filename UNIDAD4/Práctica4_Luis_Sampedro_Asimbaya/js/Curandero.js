@@ -18,6 +18,11 @@ export class Curandero extends Heroe {
     }
 
     atacar(monstruo) {
-        monstruo.recibirDaño(this.daño);
+        // probabilidades para que curandero ataque
+        if (Math.random() < 0.9) {
+            monstruo.recibirDaño(this.daño);
+        } else {
+            alert(`Tu personaje ${this.nombre} ha fallado el ataque`);
+        }
     }
 }

@@ -17,7 +17,12 @@ export default class Monstruo {
     }
 
     atacar(heroe) {
-        heroe.recibirDaño(this.daño);
+        // probabilidades para que monstruo ataque
+        if (Math.random() < 0.75) {
+            heroe.recibirDaño(this.daño);
+        } else {
+            alert(`El monstruo ${this.nombre} ha fallado el ataque`);
+        }
     }
 
     recibirDaño(cantidad) {
