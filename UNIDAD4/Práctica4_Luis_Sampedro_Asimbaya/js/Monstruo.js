@@ -6,6 +6,7 @@ export default class Monstruo {
         this.#vidaMaxima = 100;
         this.#vida = 100;
         this.daño = 10;
+        this.vivo = true;
     }
 
     get Vida() {
@@ -27,6 +28,13 @@ export default class Monstruo {
 
     recibirDaño(cantidad) {
         this.#vida -= cantidad;
+        if (this.#vida <= 0) {
+            this.vivo = false;
+        }
+    }
+
+    estaVivo() {
+        return this.vivo;
     }
 
     mostrarVida() {

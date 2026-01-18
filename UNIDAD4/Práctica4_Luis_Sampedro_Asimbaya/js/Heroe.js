@@ -10,6 +10,7 @@ export default class Heroe {
         this.#vida = 100
         this.daño = 100
         this.nivel = 1
+        this.vivo = true;
     }
 
     get vida() {
@@ -31,6 +32,13 @@ export default class Heroe {
 
     recibirDaño(cantidad) {
         this.#vida = this.#vida - cantidad;
+        if (this.#vida <= 0) {
+            this.vivo = false;
+        }
+    }
+
+    estaVivo() {
+        return this.vivo;
     }
 
     configurarVida(vidaMaxima) {

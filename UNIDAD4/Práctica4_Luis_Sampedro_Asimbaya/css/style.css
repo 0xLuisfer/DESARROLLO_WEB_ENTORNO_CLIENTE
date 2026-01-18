@@ -37,3 +37,11 @@ button:hover {
     transform: scale(1.1);
 
 }
+
+#turnoRival:hover {
+    background-color: orange;
+}
+
+#botonAtaque:hover {
+    background-color: rgb(46, 131, 211);
+}
