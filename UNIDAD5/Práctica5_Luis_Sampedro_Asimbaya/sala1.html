@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sala 1</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/sala1.js" defer></script>
+</head>
+<body>
+    <!--- Sección para mostrar al inicio de la sala --->
+    <div id="menuInicio">
+        <h1>Juego QUIZ - SALA 1</h1>
+        <input type="text" placeholder="Nombre" id="nombre"><br>
+        <p>Seleccione la temática del cuestionario y consiga 60 puntos para avanzar a la siguiente sala.<br>Cada respuesta correcta vale 10 puntos.</p>
+        <input type="button" onclick="preguntarMatematicas()" value = "MATEMÁTICAS">
+        <input type="button" onclick="preguntarCultura()" value = "CULTURA GENERAL">
+        <input type="button" onclick="preguntarCapitales()" value = "CAPITALES">
+    </div>
+
+    <!--- Añadimos sección para mostrar preguntas --->
+    <div id="contenedorPreguntas" style="display:none;">
+        <h2 id="tituloTematica"></h2>
+        <p id="preguntaTexto"></p>
+
+        <input id="respuestaInput" type="text" placeholder="Escribe tu respuesta">
+        <button onclick="enviarRespuesta()">Responder</button>
+
+        <p id="comentario"></p>
+        <p id="puntuacion"></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sala 3</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/sala3.js" type="module" defer></script>
+</head>
+<body>
+    <div id="eleccionPersonaje">
+        <h1>Juego ROL - SALA 3</h1>
+        <p id="enunciado">Con el coche con el que lograste escapar, has llegado a un castillo en ruinas donde tendrás que pelear con el monstruo para seguir avanzando.<br><br>
+        Antes debes elegir el tipo de héroe que quieres ser:</p>
+        <button onclick='crearCurandero()' id="curandero">Curandero</button>
+        <button onclick='crearTanque()' id="tanque">Tanque</button>
+        <button onclick='crearLuchador()' id="luchador">Luchador</button><br>
+        <input type="text" id="nombrePersonaje" placeholder="Nombre del personaje">
+    </div>
+
+    <div id="juego" style="display: none;">
+        <h1>Juego ROL - SALA 3</h1>
+        <p id="turno">Turno 1</p>
+        <button onclick="atacarMonstruo()" id="botonAtaque" >Atacar</button>
+        <button onclick="curarHeroe()" id="botonCuracion" >Curar</button>
+        <button onclick="atacarHeroe()" style="visibility: hidden;" id="turnoRival">Turno del rival</button>
+        <p style="display: none;" id="output"></p>
+    </div>
+</body>
+</html>
