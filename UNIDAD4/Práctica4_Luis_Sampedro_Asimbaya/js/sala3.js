@@ -96,7 +96,7 @@ window.atacarMonstruo = function () {
     mostrarOutput();
     if (!monstruo1.estaVivo()) {
         alert(`El monstruo ${monstruo1.nombre} ha muerto`);
-        document.body.innerHTML = `<h3>¡Felicidades, has logrado superar todas las salas!</h3><button onclick='finalizarJuego()'>Finalizar juego</button>`;
+        document.body.innerHTML = `<h3>¡Felicidades, has logrado pasar a la siguiente sala!</h3><button onclick='pasarSala()'>Siguiente sala</button>`;
     }
 }
 
@@ -166,9 +166,9 @@ function mostrarOutput() {
     output.style.display = 'block';
 }
 
-// redirige al principio (sala 1) si el usuario termina y gana la partida
-window.finalizarJuego = function() {
-    window.location.href = 'sala1.html';
+// redirige a la siguiente sala si logra ganar
+window.pasarSala = function() {
+    window.location.href = 'sala4.html';
 }
 
 // redirige de nuevo a la sala 3 si el usuario pierde
