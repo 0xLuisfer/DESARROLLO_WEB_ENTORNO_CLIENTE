@@ -25,7 +25,16 @@
         }
 
         #contenedor3 {
-            border: 1px solid black; width: 150px; height: 120px; display: flex; align-items: center; justify-content: center; position: absolute; top: 1500px; left: 100px;
+            border: 1px solid black; width: 350px; height: 70px; display: flex; align-items: center; justify-content: center; position: absolute; top: 1500px; left: 100px;
+        }
+
+        #contenedor4 {
+            border: 1px dashed black; width: 900px; height: 750px; display: flex; align-items: center; justify-content: center; position: absolute; top: 350px; left:2500px; padding: 20px;
+        }
+
+        #contenedor4 div {
+            border: 1px solid black;
+            padding: 70px;
         }
     </style>
 </head>
@@ -42,7 +51,18 @@
         </div>
 
         <div id="contenedor3">
-            RETO 3: CTRL + U + (Valor de x: X + 5X = 24)
+            RETO 3: CTRL + (Valor de x: X + 5X = 24)
+        </div>
+
+        <!-- propagación de eventos -->
+        <div id="contenedor4">RETO 3: Haz clic en cada uno de estos contenedores hasta cambiar al color que se pide
+            <div id="naranja"><span id="textoNaranja">Naranja</span>
+                <div id="cyan"><span id="textoCyan">Cian</span>
+                    <div id="rojo"><span id="textoRojo">Rojo</span>
+                        <div id="verde"><span id="textoVerde">Verde</span></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
