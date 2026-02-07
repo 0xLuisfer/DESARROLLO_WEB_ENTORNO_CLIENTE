@@ -1,4 +1,4 @@
-// evento primer contenedor
+// evento primer contenedor - coordenadas contenedor
 let contenedor1 = document.getElementById('contenedor1');
 contenedor1.addEventListener("mousedown", () => {
     const posicion = contenedor1.getBoundingClientRect();
@@ -12,6 +12,8 @@ contenedor1.addEventListener("mousedown", () => {
     }
 });
 
+
+// evento segundo contenedor - validación caracteres especiales
 let contenedor2 = document.getElementById('contenedor2');
 
 function ctrlM(event) {
@@ -25,6 +27,24 @@ function ctrlM(event) {
         document.removeEventListener("keydown", ctrlM); // eliminamos el evento después de que el usuario lo haya ejecutado
     }
 }
-
 // disparamos el evento CTRL + M
 document.addEventListener("keydown", ctrlM);
+
+
+// evento tercer contenedor - validación caracteres alfanuméricos
+let contenedor3 = document.getElementById('contenedor3');
+
+function ctrlResultado(event) {
+    if (event.ctrlKey && event.key === "4") {
+        alert("Correcto")
+        event.preventDefault(); // evitamos cualquier acción por defecto de esta combinacin de teclas
+
+        contenedor3.textContent = "¡CORRECTO!";
+        contenedor3.style.backgroundColor = "green";
+
+        document.removeEventListener("keydown", ctrlResultado); // eliminamos el evento después de que el usuario lo haya ejecutado
+    }
+}
+
+// disparamos el evento CTRL + Resultado
+document.addEventListener("keydown", ctrlResultado);
