@@ -1,3 +1,4 @@
+let contadorRetosSuperados = 0;
 // evento primer contenedor - coordenadas contenedor
 let contenedor1 = document.getElementById('contenedor1');
 contenedor1.addEventListener("mousedown", () => {
@@ -7,6 +8,8 @@ contenedor1.addEventListener("mousedown", () => {
         contenedor1.textContent = `¡CORRECTO!`;
         contenedor1.style.backgroundColor = "green";
         contenedor1.style.pointerEvents = "none"; // bloquea el mouse para no ejecutar el evento otra vez
+        contadorRetosSuperados++;
+        validarRetosSuperados()
     } else {
         alert(`Coordenadas incorrectas: x: ${posicion.x}, y: ${posicion.y}`)
     }
@@ -25,6 +28,8 @@ function ctrlM(event) {
         contenedor2.style.backgroundColor = "green";
 
         document.removeEventListener("keydown", ctrlM); // eliminamos el evento después de que el usuario lo haya ejecutado
+        contadorRetosSuperados++;
+        validarRetosSuperados()
     }
 }
 // disparamos el evento CTRL + M
@@ -43,6 +48,8 @@ function ctrlResultado(event) {
         contenedor3.style.backgroundColor = "green";
 
         document.removeEventListener("keydown", ctrlResultado); // eliminamos el evento después de que el usuario lo haya ejecutado
+        contadorRetosSuperados++;
+        validarRetosSuperados()
     }
 }
 
@@ -143,6 +150,8 @@ naranja.addEventListener("click", cambiarNaranja);
 function terminarReto4() {
     contenedor4.textContent = "¡CORRECTO!";
     contenedor4.style.backgroundColor = 'green';
+    contadorRetosSuperados++;
+    validarRetosSuperados()
 }
 
 
@@ -185,6 +194,8 @@ function validarPares() {
     table.style.alignItems = 'center';
     table.style.justifyContent = 'center';
     table.style.backgroundColor = 'green';
+    contadorRetosSuperados++;
+    validarRetosSuperados()
 }
 
 // evento cuadrado que se mueve
@@ -219,6 +230,19 @@ contenedor5.onclick = function(event) {
         contenedor5.style.alignItems = 'center';
         contenedor5.style.justifyContent = 'center';
         contenedor5.style.backgroundColor = 'green';
+        contadorRetosSuperados++;
+        validarRetosSuperados()
     }
+}
+
+function validarRetosSuperados() {
+    if (contadorRetosSuperados == 6) {
+        juego1.style.display = 'none';
+        pantallaFinal.style.display = 'block';
+    }
+}
+
+function pasarSala() {
+    window.location.href = 'sala5.html';
 }
 
