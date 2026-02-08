@@ -179,10 +179,46 @@ function validarPares() {
             return;
         }
     }
-    table.innerHTML = '¡HECHO!';
+    alert('RETO 5: ¡Has hecho click en todos los pares!')
+    table.innerHTML = 'CORRECTO!';
     table.style.display = 'flex';
     table.style.alignItems = 'center';
     table.style.justifyContent = 'center';
     table.style.backgroundColor = 'green';
+}
+
+// evento cuadrado que se mueve
+contenedor5.onclick = function(event) {
+    // si el click no fue dentro del contenedor interior
+    if (!contenedorInterior.contains(event.target)) {
+        alert('¡MAL!');
+        return
+    }
+
+    // ancho visible del cuadrado exterior e interior
+    let exterior = contenedor5.clientWidth;
+    let interior = contenedorInterior.clientWidth;
+
+    // se ponen límites para evitar que el cuadrado interior salga del exterior
+    let maxX = exterior - interior;
+    let maxY = exterior - interior;
+
+    //números aleatorios para establecer nuevas coordenadas del cuadrado interior
+    let x = Math.random() * maxX;
+    let y = Math.random() * maxY;
+
+    contenedorInterior.style.left = `${x}px`;
+    contenedorInterior.style.top = `${y}px`;
+
+    contenedorInterior.textContent++;
+    
+    if (contenedorInterior.textContent == 20) {
+        alert('RETO 6: ¡Buen aim!')
+        contenedor5.innerHTML = '¡CORRECTO!';
+        contenedor5.style.display = 'flex';
+        contenedor5.style.alignItems = 'center';
+        contenedor5.style.justifyContent = 'center';
+        contenedor5.style.backgroundColor = 'green';
+    }
 }
 

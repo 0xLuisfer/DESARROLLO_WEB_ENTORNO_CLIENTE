@@ -37,6 +37,25 @@
             padding: 70px;
         }
 
+        #contenedor5 {
+            border: 1px solid black;
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            top: 200px;
+            left: 1500px;
+        }
+
+        #contenedorInterior {
+            width: 40px;
+            height: 40px;
+            background-color: red;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         table {
             position: absolute;
             top: 1400px;
@@ -60,7 +79,7 @@
 <body>
     <div id="juego1" style="width: 200vw; height: 200vh;">
         <h1>Juego EVENTOS - SALA 4</h1>
-        <p>Busca los 5 retos en toda la página y sigue las intrucciones para completarlos.</p>
+        <p>Busca los 6 retos en toda la página y sigue las intrucciones para completarlos.</p>
         <div id="contenedor1">
             RETO 1: Hazme clic en las coordenadas x: 345 - 350, y: 80 - 85.<br> (Realizar con zoom al 100%)
         </div>
@@ -104,6 +123,12 @@
             </tr>
             <tr><td colspan="3"><button onclick="validarPares()">Validar</button></td></tr>
         </table>
+
+        <!--- coordenadas --->
+        <div id="contenedor5">
+            RETO 6: sigue el cuadrado hasta llegar a 20
+            <div id="contenedorInterior">1</div>
+        </div>
     </div>
 </body>
 </html>
