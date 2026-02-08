@@ -144,3 +144,45 @@ function terminarReto4() {
     contenedor4.textContent = "¡CORRECTO!";
     contenedor4.style.backgroundColor = 'green';
 }
+
+
+// quinto contenedor: números pares con delegación de eventos
+let tds = document.querySelectorAll(".numeroTD");
+// se crea un número random para cada celda dentro de la tabla
+for (let td of tds) {
+    td.textContent = Math.floor(Math.random(1) * 100);
+}
+
+// evento dentro de la tabla
+table.onclick = function(event) {
+    // se guarda la etiqueta objetivo en una variable y si no es una celda <td> no hace nada
+    let target = event.target;
+
+    if (target.tagName != 'TD') return;
+
+    // validamos si es un número par y dependiendo de eso cambiamos el color de la etiqueta
+    if (Number(target.textContent) % 2 == 0) {
+        target.style.backgroundColor = 'green';
+    } else {
+        target.style.backgroundColor = 'red';
+        alert(`¡Has fallado, tendrás que empezar de nuevo la sala!`);
+        window.location.href = 'sala4.html';
+    }
+};
+
+// función de botón para validar si el usuario ha seleccionado todos los pares, si lo ha hecho se termina el juego
+function validarPares() {
+    let tds = document.querySelectorAll(".numeroTD");
+    for (let td of tds) {
+        if (Number(td.textContent) % 2 == 0 && td.style.backgroundColor != 'green') {
+            alert('Aún faltan pares por marcar');
+            return;
+        }
+    }
+    table.innerHTML = '¡HECHO!';
+    table.style.display = 'flex';
+    table.style.alignItems = 'center';
+    table.style.justifyContent = 'center';
+    table.style.backgroundColor = 'green';
+}
+
