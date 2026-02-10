@@ -5,11 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sala 5</title>
     <style>
-    
+        * {
+            font-family: cursive;
+        }
+
+        .pokemon {
+            width: 100px;
+        }
+
+        #contenedorObjetivo {
+            background-color: rgb(125, 207, 122);
+            border: solid black 1px;
+            width: 700px;
+            height: 200px;
+            background-image: url(images/campoBatalla.jpg);
+            background-size: cover;
+            background-position: center center;
+            border: dashed rgb(224, 64, 64) 5px;
+            position: relative;
+        }
     </style>
     <script src="js/sala5.js" defer></script>
 </head>
 <body>
-    
+    <div id="juego">
+        <h1>Juego PUZZLE - SALA 5</h1>
+        <p>Lleva a tus pokemon dentro del área de combate.</p>
+        <div id="areaPokemon">
+            <img src="images/alakazam.gif" alt="alakazam" id="alakazam" class="pokemon">
+            <img src="images/blaziken.gif" alt="blaziken" id="blaziken" class="pokemon">
+            <img src="images/gengar.gif" alt="gengar" id="gengar" class="pokemon">
+            <img src="images/rowlet.gif" alt="rowlet" id="rowlet" class="pokemon">
+            <img src="images/marshadow.gif" alt="marshadow" id="marshadow" class="pokemon">
+            <img src="images/ditto.gif" alt="ditto" id="ditto" class="pokemon">
+        </div>
+        <br><br>
+        <div id="contenedorObjetivo">
+
+        </div>
+    </div>
 </body>
 </html>
