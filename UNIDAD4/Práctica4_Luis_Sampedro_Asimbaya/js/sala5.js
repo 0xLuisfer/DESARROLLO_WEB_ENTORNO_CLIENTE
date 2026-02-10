@@ -1,3 +1,23 @@
+let inputsFormulario = document.forms.formulario;
+
+for (let input of inputsFormulario) {
+    input.addEventListener("focus", function() {
+        input.style.backgroundImage = 'url(images/pokeball.webp)';
+        input.style.backgroundSize = 'cover';
+        input.style.backgroundPosition = "center center";
+        input.style.color = 'green';
+        input.style.fontWeight = 'bold';
+    });
+
+    input.addEventListener("blur", function() {
+        input.style.backgroundImage ='';
+        input.style.color = 'black';
+    });
+};
+
+
+
+
 function arrastrarPokemon(pokemon) {
 
     pokemon.onmousedown = function (event) {

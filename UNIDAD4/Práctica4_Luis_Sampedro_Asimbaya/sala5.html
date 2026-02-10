@@ -24,10 +24,30 @@
             border: dashed rgb(224, 64, 64) 5px;
             position: relative;
         }
+
+        input {
+            color: rgb(0, 0, 0);
+            padding: 2px 4px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 1px solid #000000;
+            border-radius: 4px;
+        }
+
     </style>
     <script src="js/sala5.js" defer></script>
 </head>
 <body>
+    <div id="datos">
+        <h1>Juego PUZZLE - SALA 5</h1>
+        <p>Has llegado a una sala donde debes demostrar tus conocimientos sobre Pokémon.</p>
+        <p>Antes debes introducir tus datos de entrenador:</p>
+        <form name="formulario">
+            Nombre <input type="text" id="nombre"><br><br>
+            Apellido <input type="text" id="apellido"><br><br>
+            Correo <input type="text" id="correo"><br><br>
+            Teléfono <input type="text" id="teléfono"><br><br>
+        </form>
+    </div>
     <div id="juego">
         <h1>Juego PUZZLE - SALA 5</h1>
         <p>Lleva a tus pokemon dentro del área de combate. El orden deberá ser el siguiente: </p>
