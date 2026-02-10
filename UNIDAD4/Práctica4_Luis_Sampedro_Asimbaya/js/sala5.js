@@ -55,3 +55,24 @@ arrastrarPokemon(gengar);
 arrastrarPokemon(rowlet);
 arrastrarPokemon(marshadow);
 arrastrarPokemon(ditto);
+
+// funcion para validar el orden en el que ha colocado el usuario cada elemento y compararlo con el orden correcto
+function validarOrden() {
+    ordenCorrecto = ["gengar", "ditto", "rowlet", "alakazam", "blaziken", "marshadow"];
+    let zonaDrop = document.getElementById('contenedorObjetivo');
+    // cada elemento img del contenedor
+    let gifs = zonaDrop.querySelectorAll("img");
+    let ordenUsuario = [];
+
+    // guardamos su valor id en un array nuevo
+    for (let gif of gifs) {
+        ordenUsuario.push(gif.id);
+    }
+    
+    // comparamos ambos
+    if (ordenUsuario.join() == ordenCorrecto.join()) {
+        alert('Correcto')
+    } else {
+        alert('Incorrecto');
+    }
+}
