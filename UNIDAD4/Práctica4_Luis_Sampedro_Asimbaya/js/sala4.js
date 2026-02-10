@@ -245,4 +245,3 @@ function validarRetosSuperados() {
 function pasarSala() {
     window.location.href = 'sala5.html';
 }
-
