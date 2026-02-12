@@ -37,6 +37,7 @@
     <script src="js/sala5.js" defer></script>
 </head>
 <body>
+    <!--- Datos de entrenador:  formulario y validaciones -->
     <div id="datos">
         <h1>Juego PUZZLE - SALA 5</h1>
         <p>Has llegado a una sala donde debes demostrar tus conocimientos sobre Pokémon.</p>
@@ -46,9 +47,13 @@
             Apellido <input type="text" id="apellido"><br><br>
             Correo <input type="text" id="correo"><br><br>
             Teléfono <input type="text" id="teléfono"><br><br>
+            <input type="submit" value="Crear"></input>
         </form>
+        
     </div>
-    <div id="juego">
+
+    <!--- Juego: Arrastrar y soltar y tamaño de ventanas y contenedores --->
+    <div id="juego" style="display: none;">
         <h1>Juego PUZZLE - SALA 5</h1>
         <p>Lleva a tus pokemon dentro del área de combate. El orden deberá ser el siguiente: </p>
         <ol>

@@ -96,3 +96,29 @@ function validarOrden() {
         alert('Incorrecto');
     }
 }
+
+// evento enviar formulario: mostramos cada input vacío con alert;
+formulario.addEventListener("submit", function(e) {
+    let inputsLLenos = true;
+    for (let input of inputsFormulario) {
+        if (input.type === "submit") {
+            continue;
+        }
+
+        if (!input.value) {
+            alert(`No dejes vacío el ${input.id}`);
+            inputsLLenos = false; // false si al menos un input esta vacío
+        }
+
+    }
+
+    // si todos los inputs se han rellenado ocultamos el contenedor de datos y mostramos el de juego
+    if (inputsLLenos) {
+        juego.style.display = 'block';
+        datos.style.display = 'none';
+        e.preventDefault(); // uso de preventDefault: evitamos que se envie el formulario y se vuelva a cargar la página
+    } else {
+        alert('Termine de rellenar los campos');
+    }
+
+});
