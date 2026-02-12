@@ -5,7 +5,7 @@ for (let input of inputsFormulario) {
         input.style.backgroundImage = 'url(images/pokeball.webp)';
         input.style.backgroundSize = 'cover';
         input.style.backgroundPosition = "center center";
-        input.style.color = 'green';
+        input.style.color = 'white';
         input.style.fontWeight = 'bold';
     });
 
@@ -97,28 +97,83 @@ function validarOrden() {
     }
 }
 
+let inputsValidos = true;
+// modificación del input al momento
+nombre.oninput = function() {
+    let regex = /^[a-z ]+$/i;
+    if (regex.test(nombre.value)) {
+        nombreTexto.innerHTML = 'Nombre válido';
+        nombreTexto.style.color = 'green';
+        inputsValidos = true;
+    } else {
+        nombreTexto.innerHTML = 'Nombre NO válido';
+        nombreTexto.style.color = 'red';
+        inputsValidos = false;
+    }
+}
+
+apellido.oninput = function() {
+    let regex = /^[a-z ]+$/i;
+    if (regex.test(apellido.value)) {
+        apellidoTexto.innerHTML = 'Apellido válido';
+        apellidoTexto.style.color = 'green';
+        inputsValidos = true;
+    } else {
+        apellidoTexto.innerHTML = 'Apellido NO válido';
+        apellidoTexto.style.color = 'red';
+        inputsValidos = false;
+    }
+}
+
+correo.oninput = function() {
+    let regex = /^[a-zA-Z0-9._-]{1,15}@(gmail|hotmail)\.(com|es)$/i;
+    if (regex.test(correo.value)) {
+        correoTexto.innerHTML = 'Correo válido';
+        correoTexto.style.color = 'green';
+        inputsValidos = true;
+    } else {
+        correoTexto.innerHTML = 'Correo NO válido';
+        correoTexto.style.color = 'red';
+        inputsValidos = false;
+    }
+}
+
+telefono.oninput = function() {
+    let regex = /^[0-9]{9}$/d
+    if (regex.test(telefono.value)) {
+        telefonoTexto.innerHTML = 'Teléfono válido';
+        telefonoTexto.style.color = 'green';
+        inputsValidos = true;
+    } else {
+        telefonoTexto.innerHTML = 'Teléfono NO válido';
+        telefonoTexto.style.color = 'red';
+        inputsValidos = false;
+    }
+}
+
 // evento enviar formulario: mostramos cada input vacío con alert;
 formulario.addEventListener("submit", function(e) {
-    let inputsLLenos = true;
+    
     for (let input of inputsFormulario) {
+        // el input de tipo submit se omite
         if (input.type === "submit") {
             continue;
         }
 
         if (!input.value) {
             alert(`No dejes vacío el ${input.id}`);
-            inputsLLenos = false; // false si al menos un input esta vacío
+            inputsValidos = false; // false si al menos un input esta vacío
         }
 
     }
 
-    // si todos los inputs se han rellenado ocultamos el contenedor de datos y mostramos el de juego
-    if (inputsLLenos) {
+// si todos los inputs se han rellenado ocultamos el contenedor de datos y mostramos el de juego
+    if (inputsValidos) {
+        alert('Perfil de entrenador correctamente.');
         juego.style.display = 'block';
         datos.style.display = 'none';
         e.preventDefault(); // uso de preventDefault: evitamos que se envie el formulario y se vuelva a cargar la página
     } else {
-        alert('Termine de rellenar los campos');
+        alert('Termine de rellenar los campos o verifique que sean correctos.');
     }
-
 });
