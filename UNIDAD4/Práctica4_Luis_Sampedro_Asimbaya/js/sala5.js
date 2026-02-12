@@ -1,3 +1,4 @@
+// Eventos blur y focus para dar estilo a los inputs del formulario
 let inputsFormulario = document.forms.formulario;
 
 for (let input of inputsFormulario) {
@@ -15,9 +16,88 @@ for (let input of inputsFormulario) {
     });
 };
 
+let inputsValidos = true;
+// modificación del input al momento
+nombre.oninput = function() {
+    let regex = /^[a-z ]+$/i;
+    if (regex.test(nombre.value)) {
+        nombreTexto.innerHTML = 'Nombre válido';
+        nombreTexto.style.color = 'green';
+        inputsValidos = true;
+    } else {
+        nombreTexto.innerHTML = 'Nombre NO válido';
+        nombreTexto.style.color = 'red';
+        inputsValidos = false;
+    }
+}
 
+apellido.oninput = function() {
+    let regex = /^[a-z ]+$/i;
+    if (regex.test(apellido.value)) {
+        apellidoTexto.innerHTML = 'Apellido válido';
+        apellidoTexto.style.color = 'green';
+        inputsValidos = true;
+    } else {
+        apellidoTexto.innerHTML = 'Apellido NO válido';
+        apellidoTexto.style.color = 'red';
+        inputsValidos = false;
+    }
+}
 
+correo.oninput = function() {
+    let regex = /^[a-zA-Z0-9._-]{1,15}@(gmail|hotmail)\.(com|es)$/i;
+    if (regex.test(correo.value)) {
+        correoTexto.innerHTML = 'Correo válido';
+        correoTexto.style.color = 'green';
+        inputsValidos = true;
+    } else {
+        correoTexto.innerHTML = 'Correo NO válido';
+        correoTexto.style.color = 'red';
+        inputsValidos = false;
+    }
+}
 
+telefono.oninput = function() {
+    let regex = /^[0-9]{9}$/d
+    if (regex.test(telefono.value)) {
+        telefonoTexto.innerHTML = 'Teléfono válido';
+        telefonoTexto.style.color = 'green';
+        inputsValidos = true;
+    } else {
+        telefonoTexto.innerHTML = 'Teléfono NO válido';
+        telefonoTexto.style.color = 'red';
+        inputsValidos = false;
+    }
+}
+
+// evento enviar formulario: mostramos cada input vacío con alert;
+formulario.addEventListener("submit", function(e) {
+    
+    for (let input of inputsFormulario) {
+        // el input de tipo submit se omite
+        if (input.type === "submit") {
+            continue;
+        }
+
+        if (!input.value) {
+            alert(`CAMPO VACÍO: {${input.id}}`);
+            inputsValidos = false; // false si al menos un input esta vacío
+        }
+    }
+
+// si todos los inputs se han rellenado ocultamos el contenedor de datos y mostramos el de juego
+    if (inputsValidos) {
+        alert('Perfil de entrenador creado correctamente.');
+        juego.style.display = 'block';
+        datos.style.display = 'none';
+        e.preventDefault(); // uso de preventDefault: evitamos que se envie el formulario y se vuelva a cargar la página
+    } else {
+        alert('Termine de rellenar los campos o verifique que sean correctos.');
+        e.preventDefault(); // uso de preventDefault: evitamos que se envie el formulario y se vuelva a cargar la página
+    }
+});
+
+// Juego arrastrar Pokémon al área de combate
 function arrastrarPokemon(pokemon) {
 
     pokemon.onmousedown = function (event) {
@@ -91,89 +171,19 @@ function validarOrden() {
     
     // comparamos ambos
     if (ordenUsuario.join() == ordenCorrecto.join()) {
-        alert('Correcto')
+        alert('CORRECTO: Has superado tu prueba final')
+        juego.style.display = 'none';
+        pantallaFinal.style.display = 'block';
     } else {
-        alert('Incorrecto');
+        alert('INCORRECTO: Vuelve a intentarlo');
     }
 }
 
-let inputsValidos = true;
-// modificación del input al momento
-nombre.oninput = function() {
-    let regex = /^[a-z ]+$/i;
-    if (regex.test(nombre.value)) {
-        nombreTexto.innerHTML = 'Nombre válido';
-        nombreTexto.style.color = 'green';
-        inputsValidos = true;
-    } else {
-        nombreTexto.innerHTML = 'Nombre NO válido';
-        nombreTexto.style.color = 'red';
-        inputsValidos = false;
-    }
+// Una vez terminado el juego el usuario puede reiniciar sala 5 o volver a la sala 1
+function reiniciar() {
+    window.location.href = 'sala1.html';
 }
 
-apellido.oninput = function() {
-    let regex = /^[a-z ]+$/i;
-    if (regex.test(apellido.value)) {
-        apellidoTexto.innerHTML = 'Apellido válido';
-        apellidoTexto.style.color = 'green';
-        inputsValidos = true;
-    } else {
-        apellidoTexto.innerHTML = 'Apellido NO válido';
-        apellidoTexto.style.color = 'red';
-        inputsValidos = false;
-    }
+function volverSala() {
+    window.location.href = 'sala5.html';
 }
-
-correo.oninput = function() {
-    let regex = /^[a-zA-Z0-9._-]{1,15}@(gmail|hotmail)\.(com|es)$/i;
-    if (regex.test(correo.value)) {
-        correoTexto.innerHTML = 'Correo válido';
-        correoTexto.style.color = 'green';
-        inputsValidos = true;
-    } else {
-        correoTexto.innerHTML = 'Correo NO válido';
-        correoTexto.style.color = 'red';
-        inputsValidos = false;
-    }
-}
-
-telefono.oninput = function() {
-    let regex = /^[0-9]{9}$/d
-    if (regex.test(telefono.value)) {
-        telefonoTexto.innerHTML = 'Teléfono válido';
-        telefonoTexto.style.color = 'green';
-        inputsValidos = true;
-    } else {
-        telefonoTexto.innerHTML = 'Teléfono NO válido';
-        telefonoTexto.style.color = 'red';
-        inputsValidos = false;
-    }
-}
-
-// evento enviar formulario: mostramos cada input vacío con alert;
-formulario.addEventListener("submit", function(e) {
-    
-    for (let input of inputsFormulario) {
-        // el input de tipo submit se omite
-        if (input.type === "submit") {
-            continue;
-        }
-
-        if (!input.value) {
-            alert(`No dejes vacío el ${input.id}`);
-            inputsValidos = false; // false si al menos un input esta vacío
-        }
-
-    }
-
-// si todos los inputs se han rellenado ocultamos el contenedor de datos y mostramos el de juego
-    if (inputsValidos) {
-        alert('Perfil de entrenador correctamente.');
-        juego.style.display = 'block';
-        datos.style.display = 'none';
-        e.preventDefault(); // uso de preventDefault: evitamos que se envie el formulario y se vuelva a cargar la página
-    } else {
-        alert('Termine de rellenar los campos o verifique que sean correctos.');
-    }
-});

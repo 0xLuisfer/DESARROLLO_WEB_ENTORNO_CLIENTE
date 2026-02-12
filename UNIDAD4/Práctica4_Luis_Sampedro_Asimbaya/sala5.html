@@ -4,37 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sala 5</title>
-    <style>
-        * {
-            font-family: cursive;
-        }
-
-        .pokemon {
-            width: 100px;
-        }
-
-        #contenedorObjetivo {
-            background-color: rgb(125, 207, 122);
-            border: solid black 1px;
-            width: 700px;
-            height: 200px;
-            background-image: url(images/campoBatalla.jpg);
-            background-size: cover;
-            background-position: center center;
-            border: dashed rgb(224, 64, 64) 5px;
-            position: relative;
-        }
-
-        input {
-            color: rgb(0, 0, 0);
-            padding: 2px 4px;
-            background-color: rgba(0, 0, 0, 0.3);
-            border: 1px solid #000000;
-            border-radius: 4px;
-        }
-
-    </style>
     <script src="js/sala5.js" defer></script>
+    <link rel="stylesheet" href="css/sala5.css">
 </head>
 <body>
     <!--- Datos de entrenador:  formulario y validaciones -->
@@ -77,6 +48,13 @@
 
         </div><br>
         <button onclick="validarOrden()">Verificar</button>
+    </div>
+
+    <!--- Pantalla final juego finalizado --->
+    <div id="pantallaFinal" style="display: none;">
+        <h2>¡¡ENHORABUENA!! Has logrado ganar la batalla Pokémon y, con ello, has podido volver a casa.</h2>
+        <button onclick="reiniciar()">Volver a la sala 1</button>
+        <button onclick="volverSala()">Reiniciar esta sala</button>
     </div>
 </body>
 </html>

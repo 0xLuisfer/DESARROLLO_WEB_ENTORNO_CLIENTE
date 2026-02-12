@@ -1,0 +1,27 @@
+* {
+    font-family: cursive;
+}
+
+.pokemon {
+    width: 100px;
+}
+
+#contenedorObjetivo {
+    background-color: rgb(125, 207, 122);
+    border: solid black 1px;
+    width: 700px;
+    height: 200px;
+    background-image: url(images/campoBatalla.jpg);
+    background-size: cover;
+    background-position: center center;
+    border: dashed rgb(224, 64, 64) 5px;
+    position: relative;
+}
+
+input {
+    color: rgb(0, 0, 0);
+    padding: 2px 4px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid #000000;
+    border-radius: 4px;
+}
