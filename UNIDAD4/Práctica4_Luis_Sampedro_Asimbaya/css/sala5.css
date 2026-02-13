@@ -11,7 +11,7 @@
     border: solid black 1px;
     width: 700px;
     height: 200px;
-    background-image: url(images/campoBatalla.jpg);
+    background-image: url(../images/campoBatalla.jpg);
     background-size: cover;
     background-position: center center;
     border: dashed rgb(224, 64, 64) 5px;
